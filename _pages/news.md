@@ -5,6 +5,7 @@ excerpt: "Recent News and Updates"
 author_profile: true
 redirect_from: 
   - /news.html
+layout: default
 ---
 
 # 🔥 News
