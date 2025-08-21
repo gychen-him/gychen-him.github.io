@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Guangyong Chen"
-description              : "Research Professor at Hangzhou Institute of Medicine, Chinese Academy of Sciences. Developing next-generation computational tools for medical AI and drug discovery."
+description              : "Developing next-generation computational tools for medical AI and drug discovery."
 repository               : "gychen-him/gychen-him.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,9 +23,8 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Guangyong Chen"
   avatar           : "images/profile-jpg.jpg"
-  bio              : "Research Professor, Hangzhou Institute of Medicine, CAS"
+  bio              : "Research Professor at HIM, CAS."
   location         : "Hangzhou, China"
-  employer         : "Chinese Academy of Sciences"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate"
   email            : "chenguangyong@him.cas.cn"
