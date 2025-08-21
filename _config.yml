@@ -6,8 +6,8 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Lorem ipsum"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
+title                    : "Guangyong Chen"
+description              : "Research Professor at Hangzhou Institute of Medicine, Chinese Academy of Sciences. Developing next-generation computational tools for medical AI and drug discovery."
 repository               : "gychen-him/gychen-him.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -21,14 +21,14 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Lorem ipsum"
-  avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
-  location         : "Beijing, China"
-  employer         :
+  name             : "Guangyong Chen"
+  avatar           : "images/profile-jpg.jpg"
+  bio              : "Research Professor, Hangzhou Institute of Medicine, CAS"
+  location         : "Hangzhou, China"
+  employer         : "Chinese Academy of Sciences"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate"
-  email            : "Lorem@ipsum.com"
+  email            : "guangyong.chen@him-cas.org.cn"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
