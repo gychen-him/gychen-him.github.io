@@ -23,5 +23,5 @@ group :jekyll_plugins do
   # gem "jekyll-archives"
   gem "jekyll-feed"
   gem 'jekyll-sitemap'
-  gem 'hawkins'
+  # gem 'hawkins'  # Comment out hawkins as it may cause issues with GitHub Pages
 end
