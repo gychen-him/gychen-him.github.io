@@ -55,53 +55,10 @@ layout: default
   color: white;
 }
 
-.bibtex-container {
-  margin-top: 15px;
-}
 
-.bibtex-toggle {
-  background: #666;
-  color: white;
-  border: none;
-  padding: 5px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-}
-
-.bibtex-content {
-  display: none;
-  background: #f5f5f5;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85em;
-  white-space: pre-wrap;
-  overflow-x: auto;
-}
 </style>
 
 <script>
-function toggleBibtex(id) {
-  var content = document.getElementById('bibtex-' + id);
-  var button = document.getElementById('btn-' + id);
-  if (content.style.display === 'none' || content.style.display === '') {
-    content.style.display = 'block';
-    button.textContent = 'Hide BibTeX';
-  } else {
-    content.style.display = 'none';
-    button.textContent = 'Show BibTeX';
-  }
-}
-
-function copyBibtex(id) {
-  var content = document.getElementById('bibtex-' + id);
-  navigator.clipboard.writeText(content.textContent).then(function() {
-    alert('BibTeX copied to clipboard!');
-  });
-}
 
 // Parse BibTeX content
 function parseBibtex(bibtexText) {
@@ -178,12 +135,6 @@ function renderPublications() {
           <div class="paper-links">
             ${entry.fields.url ? `<a href="${entry.fields.url}" target="_blank">📄 Paper</a>` : ''}
             ${entry.fields.doi ? `<a href="https://doi.org/${entry.fields.doi}" target="_blank">🔗 DOI</a>` : ''}
-          </div>
-          
-          <div class="bibtex-container">
-            <button class="bibtex-toggle" id="btn-${index}" onclick="toggleBibtex(${index})">Show BibTeX</button>
-            <button class="bibtex-toggle" onclick="copyBibtex(${index})" style="margin-left: 5px;">Copy BibTeX</button>
-            <div class="bibtex-content" id="bibtex-${index}">${entry.raw}</div>
           </div>
         `;
         
