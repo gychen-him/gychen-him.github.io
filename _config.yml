@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Guangyong Chen"
-description              : "Developing next-generation computational tools for medical AI and drug discovery."
+description              : "Developing next-generation computational tools for medical AI."
 repository               : "gychen-him/gychen-him.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Guangyong Chen"
   avatar           : "images/profile-jpg.jpg"
-  bio              : "Research Professor at HIM, CAS."
+  bio              : "Research Professor <br/> at HIM, CAS"
   location         : "Hangzhou, China"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate"
