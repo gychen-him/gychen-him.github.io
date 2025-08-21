@@ -28,4 +28,101 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+<!-- Page transition styles -->
+<style>
+/* Page transition effects */
+.page__content {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.page-loading {
+  opacity: 0.7;
+  transform: translateY(10px);
+}
+
+/* Smooth navigation effects */
+.greedy-nav a {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.greedy-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.greedy-nav a.current {
+  color: #2c5aa0 !important;
+  font-weight: 600;
+}
+
+.greedy-nav a.current::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #2c5aa0;
+  border-radius: 1px;
+}
+
+/* Loading indicator */
+.loading-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #2c5aa0, #4a7bc8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 9999;
+}
+
+.loading-indicator.active {
+  transform: scaleX(1);
+}
+
+/* Fade in animation for content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-fade-in {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Improve sidebar transition */
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+/* Publications page specific improvements */
+.paper-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.paper-item.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation for papers */
+.paper-item:nth-child(1) { animation-delay: 0.1s; }
+.paper-item:nth-child(2) { animation-delay: 0.2s; }
+.paper-item:nth-child(3) { animation-delay: 0.3s; }
+.paper-item:nth-child(4) { animation-delay: 0.4s; }
+.paper-item:nth-child(5) { animation-delay: 0.5s; }
+</style>
+
 <!-- end custom head snippets -->

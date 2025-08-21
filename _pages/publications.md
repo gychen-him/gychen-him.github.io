@@ -10,49 +10,48 @@ layout: default
 
 <style>
 .paper-item {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
-  background: #fafafa;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.paper-item:last-child {
+  border-bottom: none;
 }
 
 .paper-title {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #2c5aa0;
-  margin-bottom: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  line-height: 1.3;
 }
 
 .paper-authors {
-  font-style: italic;
-  margin-bottom: 8px;
+  color: #666;
+  margin-bottom: 3px;
+  font-size: 0.95em;
 }
 
 .paper-venue {
-  font-weight: bold;
-  color: #666;
-  margin-bottom: 10px;
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 8px;
 }
 
 .paper-links {
-  margin: 15px 0;
+  margin: 8px 0 0 0;
 }
 
 .paper-links a {
-  display: inline-block;
-  margin-right: 15px;
-  padding: 5px 12px;
-  background: #2c5aa0;
-  color: white;
+  color: #2c5aa0;
   text-decoration: none;
-  border-radius: 4px;
+  margin-right: 15px;
   font-size: 0.9em;
 }
 
 .paper-links a:hover {
-  background: #1e3d6f;
-  color: white;
+  text-decoration: underline;
 }
 
 
@@ -143,6 +142,13 @@ function renderPublications() {
       
       // Update total count
       document.getElementById('total-count').textContent = entries.length;
+      
+      // Trigger animations after content is loaded
+      setTimeout(() => {
+        if (typeof enhancePublicationsAnimation === 'function') {
+          enhancePublicationsAnimation();
+        }
+      }, 100);
     })
     .catch(error => {
       console.error('Error loading BibTeX file:', error);
@@ -157,12 +163,8 @@ document.addEventListener('DOMContentLoaded', renderPublications);
 
 # 📝 Publications
 
+**Total Publications**: <span id="total-count">Loading...</span> | *For the most up-to-date list, please visit my [Google Scholar profile](https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate).*
+
 <div id="publications-container">
   <p>Loading publications...</p>
 </div>
-
----
-
-**Total Publications**: <span id="total-count">Loading...</span>
-
-*For the most up-to-date list, please visit my [Google Scholar profile](https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate).*
