@@ -25,10 +25,8 @@ My research focuses on developing next-generation computational tools for medica
 I have published over 40 papers as first or corresponding author in prestigious journals and conferences including *Nature Machine Intelligence*, *Nature Computational Science*, *Nature Communications*, ICML, ICLR, and NeurIPS. I currently lead several major research projects including National Key R&D Program International Cooperation Projects and National Natural Science Foundation projects with total <a href='https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a>.
 
 
-# 📖 Education
-- *Ph.D.* in Computer Science and Engineering, The Chinese University of Hong Kong 
-
-# 💼 Professional Experience
-- *Current*, Research Professor, Hangzhou Institute of Medicine, Chinese Academy of Sciences
-- *Current*, Associate Director, Medical AI Center, Hangzhou Institute of Medicine, Chinese Academy of Sciences  
-- *Former*, Hundred Talents Program Research Professor, Zhejiang University-Zhijiang Laboratory Platform
+# 🔥 News
+- *2025.01*: &nbsp;🎉🎉 New paper accepted at Nature Communications on protein folding!
+- *2024.12*: &nbsp;📢 Gave an invited talk at the AI for Drug Discovery Workshop
+- *2024.11*: &nbsp;🏆 Received the Outstanding Young Scientist Award from CAS
+- *2024.10*: &nbsp;🚀 Launched new collaboration with pharmaceutical companies on AI-driven drug design
