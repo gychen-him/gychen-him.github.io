@@ -26,7 +26,8 @@ I have published over 40 papers as first or corresponding author in prestigious 
 
 
 # News
-- *2025.01*: New paper accepted at Nature Communications on protein folding
-- *2024.12*: Gave an invited talk at the AI for Drug Discovery Workshop
-- *2024.11*: Received the Outstanding Young Scientist Award from CAS
-- *2024.10*: Launched new collaboration with pharmaceutical companies on AI-driven drug design
+- *2025.01*: "PhyloTune: An efficient method to accelerate phylogenetic updates using a pretrained DNA language model" accepted at **Nature Communications**
+- *2025.01*: "DivPro: diverse protein sequence design with direct structure recovery guidance" accepted at **Bioinformatics**
+- *2025.01*: "Small CAG Repeat RNA Forms a Duplex Structure with Sticky Ends That Promote RNA Condensation" accepted at **Journal of the American Chemical Society**
+- *2025.01*: "MM-Mixing: Multi-Modal Mixing Alignment for 3D Understanding" accepted at **AAAI 2025**
+- *2025.01*: "Dual Ensembled Multiagent Q-Learning with Hypernet Regularizer" accepted at **AAMAS 2025**
