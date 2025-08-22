@@ -156,77 +156,63 @@ function getVenueDisplay(entry) {
   return '';
 }
 
+// Parse author names from "Last, First" format
+function parseAuthorName(authorString) {
+  const trimmed = authorString.trim();
+  if (trimmed.includes(',')) {
+    const [last, first] = trimmed.split(',').map(p => p.trim());
+    return { last, first, full: `${first} ${last}`, original: trimmed };
+  } else {
+    // If no comma, assume "First Last" format
+    const parts = trimmed.split(' ');
+    const last = parts[parts.length - 1];
+    const first = parts.slice(0, -1).join(' ');
+    return { last, first, full: trimmed, original: trimmed };
+  }
+}
+
+// Check if two authors match (compare both last and first names)
+function authorsMatch(author1, author2) {
+  const parsed1 = parseAuthorName(author1);
+  const parsed2 = parseAuthorName(author2);
+  
+  return parsed1.last.toLowerCase() === parsed2.last.toLowerCase() && 
+         parsed1.first.toLowerCase() === parsed2.first.toLowerCase();
+}
+
 // Format authors in Chicago style with special markings
 function formatAuthors(authorsString, entry) {
   if (!authorsString) return 'Unknown authors';
   
-  // Get special author markers from BibTeX fields
-  const cofirstAuthors = entry.fields.cofirst ? entry.fields.cofirst.split(',').map(name => name.trim()) : [];
-  const correspondingAuthors = entry.fields.corresponding ? entry.fields.corresponding.split(',').map(name => name.trim()) : [];
+  // Parse cofirst and corresponding fields
+  // These contain authors in same format as main author field: "Last1, First1 and Last2, First2"
+  const cofirstAuthors = entry.fields.cofirst ? 
+    entry.fields.cofirst.split(' and ').map(author => author.trim()) : [];
+  const correspondingAuthors = entry.fields.corresponding ? 
+    entry.fields.corresponding.split(' and ').map(author => author.trim()) : [];
   
-  // Split authors by 'and' and clean up
+  // Split authors by 'and'
   const authors = authorsString.split(' and ').map(author => author.trim());
   
-  // Format each author for Chicago style (First Last format, no internal commas)
+  console.log('Debug - Authors:', authors);
+  console.log('Debug - Cofirst:', cofirstAuthors);
+  console.log('Debug - Corresponding:', correspondingAuthors);
+  
+  // Format each author
   const formattedAuthors = authors.map((author, index) => {
-    // Clean up the author name (remove extra whitespace)
-    let cleanAuthor = author.trim();
+    const parsed = parseAuthorName(author);
+    let displayName = parsed.full; // Display as "First Last"
     
-    // For Chicago style, we keep names in "First Last" format for display
-    // but we need to handle "Last, First" format if it exists in BibTeX
-    let displayName;
-    if (cleanAuthor.includes(',')) {
-      // Convert "Last, First" to "First Last"
-      const parts = cleanAuthor.split(',').map(p => p.trim());
-      if (parts.length === 2) {
-        displayName = `${parts[1]} ${parts[0]}`;
-      } else {
-        displayName = cleanAuthor;
-      }
-    } else {
-      // Already in "First Last" format
-      displayName = cleanAuthor;
-    }
+    // Check if this author is co-first
+    const isCoFirst = cofirstAuthors.some(cofirstAuthor => authorsMatch(author, cofirstAuthor));
     
-    // Debug logging
-    console.log(`Processing author: "${cleanAuthor}" -> "${displayName}"`);
-    console.log(`Cofirst authors:`, cofirstAuthors);
-    console.log(`Corresponding authors:`, correspondingAuthors);
+    // Check if this author is corresponding
+    const isCorresponding = correspondingAuthors.some(corrAuthor => authorsMatch(author, corrAuthor));
     
-    // Precise full name matching function with debugging
-    const matchesFullName = (authorName, targetName) => {
-      const normalizeName = (name) => {
-        name = name.toLowerCase().trim();
-        // Convert "Last, First" to "First Last" for comparison
-        if (name.includes(',')) {
-          const [last, first] = name.split(',').map(p => p.trim());
-          return `${first} ${last}`;
-        }
-        return name;
-      };
-      
-      const normalizedAuthor = normalizeName(authorName);
-      const normalizedTarget = normalizeName(targetName);
-      
-      // Debug logging
-      console.log(`Matching: "${normalizedAuthor}" vs "${normalizedTarget}" = ${normalizedAuthor === normalizedTarget}`);
-      
-      // Must match the complete normalized name
-      return normalizedAuthor === normalizedTarget;
-    };
+    console.log(`Debug - Author "${author}": coFirst=${isCoFirst}, corresponding=${isCorresponding}`);
     
-    // Check if this author is a co-first author (full name match only)
-    const isCoFirst = cofirstAuthors.some(name => 
-      matchesFullName(displayName, name) || matchesFullName(cleanAuthor, name)
-    );
-    
-    // Check if this author is a corresponding author (full name match only)
-    const isCorresponding = correspondingAuthors.some(name => 
-      matchesFullName(displayName, name) || matchesFullName(cleanAuthor, name)
-    );
-    
-    // Bold my name (check for various formats)
-    if (displayName.toLowerCase().includes('guangyong') && displayName.toLowerCase().includes('chen')) {
+    // Bold my name
+    if (parsed.last.toLowerCase() === 'chen' && parsed.first.toLowerCase().includes('guangyong')) {
       displayName = `<strong>${displayName}</strong>`;
     }
     
