@@ -60,11 +60,8 @@ class SPANavigation {
     // Update browser URL
     history.pushState({ path: path }, '', path);
     
-    // Load new content
+    // Load new content (currentPath will be updated in loadContent)
     this.loadContent(path, true);
-    
-    // Update current path
-    this.currentPath = path;
   }
 
   async loadContent(path, animate = true) {
@@ -98,6 +95,9 @@ class SPANavigation {
       if (newContent) {
         // Small delay for smooth transition
         setTimeout(() => {
+          // Update current path before content update
+          this.currentPath = path;
+          
           // Update content
           this.contentArea.innerHTML = newContent.innerHTML;
           
@@ -163,16 +163,32 @@ class SPANavigation {
       window.initializeGoogleScholarStats();
     }
     
-    // Execute page-specific scripts
+    // Check if we're on publications page and call renderPublications directly
+    if (this.currentPath === '/publications/' || this.currentPath === '/publications') {
+      console.log('Loading publications page via SPA');
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        if (typeof renderPublications === 'function') {
+          console.log('Calling renderPublications function');
+          renderPublications();
+        } else {
+          console.log('renderPublications function not found, executing scripts');
+          this.executePageScripts();
+        }
+      }, 100);
+    }
+    
+    // Execute other page-specific scripts
+    this.executePageScripts();
+  }
+  
+  executePageScripts() {
     const scripts = this.contentArea.querySelectorAll('script');
     scripts.forEach(script => {
       if (script.innerHTML.trim()) {
         try {
-          // Create a new script element and execute it
-          const newScript = document.createElement('script');
-          newScript.innerHTML = script.innerHTML;
-          document.head.appendChild(newScript);
-          document.head.removeChild(newScript);
+          // Use eval in global scope to ensure functions are available globally
+          window.eval(script.innerHTML);
         } catch (error) {
           console.error('Error executing script:', error);
         }
