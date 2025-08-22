@@ -238,7 +238,7 @@
 
 .masthead__menu {
   width: auto !important;
-  max-width: 50% !important;
+  max-width: 70% !important;
   float: none !important;
   text-align: left !important;
 }
@@ -258,6 +258,7 @@
   padding: 0 !important;
   gap: 1em !important;
   flex-wrap: nowrap !important;
+  overflow: visible !important;
 }
 
 /* Navigation items styling */
@@ -266,6 +267,15 @@
   float: none !important;
   flex: 0 0 auto !important;
   white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure all navigation items are visible */
+.masthead__menu-item,
+.masthead__menu-item a {
+  display: block !important;
+  visibility: visible !important;
 }
 
 .masthead__menu-item a {
