@@ -49,7 +49,7 @@ function parseBibtex(bibtexText) {
   return entries;
 }
 
-// Render publications
+// Render publications from BibTeX
 function renderPublications() {
   fetch('/pub.bib')
     .then(response => response.text())

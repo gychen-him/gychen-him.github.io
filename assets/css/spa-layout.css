@@ -296,3 +296,16 @@
 .paper-links a:hover {
   text-decoration: underline;
 }
+
+.paper-stats {
+  margin: 0.5em 0;
+}
+
+.citation-count {
+  color: #666;
+  font-size: 0.85em;
+  background: #f5f5f5;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  display: inline-block;
+}

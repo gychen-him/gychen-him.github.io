@@ -1,0 +1,57 @@
+name: Update Google Scholar Stats
+
+on:
+  schedule:
+    # Run daily at 8:00 AM UTC (4:00 PM Beijing Time)
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-scholar-stats:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r google_scholar_crawler/requirements.txt
+        
+    - name: Run Google Scholar crawler
+      env:
+        GOOGLE_SCHOLAR_ID: AUpqepUAAAAJ  # Your Google Scholar ID
+      run: |
+        cd google_scholar_crawler
+        python main.py > gs_data.json
+        
+    - name: Create google-scholar-stats branch if not exists
+      run: |
+        git fetch origin
+        if ! git show-ref --verify --quiet refs/remotes/origin/google-scholar-stats; then
+          git checkout --orphan google-scholar-stats
+          git rm -rf .
+          git commit --allow-empty -m "Initial commit for google-scholar-stats"
+          git push origin google-scholar-stats
+          git checkout main
+        fi
+        
+    - name: Update stats in google-scholar-stats branch
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git checkout google-scholar-stats
+        mkdir -p results
+        cp google_scholar_crawler/results/*.json ./
+        git add *.json
+        git diff --staged --quiet || git commit -m "Update Google Scholar stats $(date)"
+        git push origin google-scholar-stats
+        
+    - name: Switch back to main branch
+      run: git checkout main
