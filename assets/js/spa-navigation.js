@@ -6,8 +6,13 @@
 class SPANavigation {
   constructor() {
     this.contentArea = document.querySelector('.spa-content');
-    this.navLinks = document.querySelectorAll('.greedy-nav a[href^="/"]');
+    this.navLinks = document.querySelectorAll('.masthead__menu-item a, .greedy-nav a');
     this.currentPath = window.location.pathname;
+    
+    // Debug logging
+    console.log('SPA Navigation initialized');
+    console.log('Content area found:', !!this.contentArea);
+    console.log('Navigation links found:', this.navLinks.length);
     
     this.init();
   }
@@ -26,15 +31,20 @@ class SPANavigation {
     this.navLinks.forEach(link => {
       const href = link.getAttribute('href');
       
-      // Skip external links and anchor links
-      if (!href || href.startsWith('http') || href.startsWith('#')) {
+      // Skip external links, anchor links, and mailto links
+      if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) {
         return;
       }
       
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.navigate(href);
-      });
+      // Only bind to internal page links
+      const internalPages = ['/', '/publications/', '/group/'];
+      if (internalPages.includes(href)) {
+        console.log('Binding SPA navigation to:', href);
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.navigate(href);
+        });
+      }
     });
   }
 
