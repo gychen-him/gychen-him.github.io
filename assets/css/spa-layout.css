@@ -227,8 +227,27 @@
   display: none !important;
 }
 
+/* Navigation alignment and styling */
 .greedy-nav .visible-links {
-  width: 100% !important;
+  width: auto !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+.masthead__inner-wrap {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+.masthead__menu {
+  width: auto !important;
+}
+
+.greedy-nav {
+  width: auto !important;
+  float: none !important;
 }
 
 /* Smooth transitions for SPA navigation */
