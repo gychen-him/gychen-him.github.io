@@ -349,9 +349,9 @@ function renderPublications() {
           const chicagoCitation = formatChicagoCitation(entry);
           
           paperDiv.innerHTML = `
+            ${categoryBadge ? `<div class="category-badge ${categoryBadge.class}">${categoryBadge.text}</div>` : ''}
             <div class="paper-number">${groupedByYear[year].length - index}</div>
             <div class="paper-content">
-              ${categoryBadge ? `<div class="category-badge ${categoryBadge.class}">${categoryBadge.text}</div>` : ''}
               <div class="chicago-citation">${chicagoCitation}</div>
               
               <div class="paper-links">
