@@ -188,7 +188,12 @@ function formatAuthors(authorsString, entry) {
       displayName = cleanAuthor;
     }
     
-    // Precise full name matching function
+    // Debug logging
+    console.log(`Processing author: "${cleanAuthor}" -> "${displayName}"`);
+    console.log(`Cofirst authors:`, cofirstAuthors);
+    console.log(`Corresponding authors:`, correspondingAuthors);
+    
+    // Precise full name matching function with debugging
     const matchesFullName = (authorName, targetName) => {
       const normalizeName = (name) => {
         name = name.toLowerCase().trim();
@@ -202,6 +207,9 @@ function formatAuthors(authorsString, entry) {
       
       const normalizedAuthor = normalizeName(authorName);
       const normalizedTarget = normalizeName(targetName);
+      
+      // Debug logging
+      console.log(`Matching: "${normalizedAuthor}" vs "${normalizedTarget}" = ${normalizedAuthor === normalizedTarget}`);
       
       // Must match the complete normalized name
       return normalizedAuthor === normalizedTarget;
