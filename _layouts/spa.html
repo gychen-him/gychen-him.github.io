@@ -1,0 +1,36 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body>
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
+
+    <div id="main" role="main" class="spa-container">
+      <div class="spa-sidebar">
+        {% include sidebar.html %}
+      </div>
+    
+      <div class="spa-content">
+        <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+          <div class="page__inner-wrap">
+            <section id="dynamic-content" class="page__content" itemprop="text">
+              {{ content }}
+            </section>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    {% include scripts.html %}
+    <script src="{{ '/assets/js/spa-navigation.js' | relative_url }}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+/* SPA Layout Styles */
+.spa-container {
+  display: flex;
+  min-height: calc(100vh - 80px); /* Adjust based on your masthead height */
+  gap: 0;
+}
+
+.spa-sidebar {
+  flex: 0 0 300px; /* Fixed width sidebar */
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  padding: 1em;
+}
+
+.spa-content {
+  flex: 1;
+  padding: 1em;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+/* Loading animation */
+.content-loading {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.content-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .spa-container {
+    flex-direction: column;
+  }
+  
+  .spa-sidebar {
+    flex: none;
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Active navigation state */
+.masthead__menu-item a.active {
+  color: #52adc8;
+  font-weight: bold;
+}
