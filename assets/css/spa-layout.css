@@ -659,6 +659,28 @@
   color: #495057;
 }
 
+/* Research category badges */
+.category-badge {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  letter-spacing: 0.5px;
+}
+
+.category-badge.ai-category {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.category-badge.science-category {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
 .featured-paper .paper-title {
   font-size: 1.3em;
   font-weight: 600;

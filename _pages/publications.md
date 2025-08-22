@@ -111,26 +111,18 @@ function parseBibtex(bibtexText) {
   return entries;
 }
 
-// Get venue badge class based on venue name
-function getVenueBadge(venue) {
-  const venueUpper = venue.toUpperCase();
+// Get research category badge from BibTeX field
+function getCategoryBadge(entry) {
+  const category = entry.fields.category;
+  if (!category) return null;
   
-  if (venueUpper.includes('NATURE')) {
-    return 'nature';
-  } else if (venueUpper.includes('NEURIPS') || venueUpper.includes('NIPS')) {
-    return 'neurips';
-  } else if (venueUpper.includes('ICML')) {
-    return 'icml';
-  } else if (venueUpper.includes('ICLR')) {
-    return 'iclr';
-  } else if (venueUpper.includes('AAAI') || venueUpper.includes('IJCAI')) {
-    return 'ai-conference';
-  } else if (venueUpper.includes('BIOINFORMATICS') || venueUpper.includes('BMC') || venueUpper.includes('PLOS')) {
-    return 'bio-journal';
-  } else if (venueUpper.includes('IEEE') || venueUpper.includes('ACM')) {
-    return 'cs-journal';
+  const categoryLower = category.toLowerCase();
+  if (categoryLower.includes('ai') || categoryLower.includes('artificial intelligence') || categoryLower.includes('machine learning')) {
+    return { class: 'ai-category', text: 'AI' };
+  } else if (categoryLower.includes('science') || categoryLower.includes('biology') || categoryLower.includes('medicine') || categoryLower.includes('chemistry')) {
+    return { class: 'science-category', text: 'Science' };
   }
-  return 'other';
+  return null;
 }
 
 // Check if entry is preprint (arXiv or bioRxiv)
@@ -316,22 +308,20 @@ function renderPublications() {
       // Filter out preprints (arXiv and bioRxiv)
       const publishedEntries = entries.filter(entry => !isPreprint(entry));
       
-      // Group by year
+      // Group by year (skip entries without valid year)
       const groupedByYear = {};
       publishedEntries.forEach(entry => {
-        const year = parseInt(entry.fields.year) || 'Unknown';
-        if (!groupedByYear[year]) {
-          groupedByYear[year] = [];
+        const year = parseInt(entry.fields.year);
+        if (year && year > 1900) { // Only include valid years
+          if (!groupedByYear[year]) {
+            groupedByYear[year] = [];
+          }
+          groupedByYear[year].push(entry);
         }
-        groupedByYear[year].push(entry);
       });
       
       // Sort years (newest first)
-      const sortedYears = Object.keys(groupedByYear).sort((a, b) => {
-        if (a === 'Unknown') return 1;
-        if (b === 'Unknown') return -1;
-        return parseInt(b) - parseInt(a);
-      });
+      const sortedYears = Object.keys(groupedByYear).sort((a, b) => parseInt(b) - parseInt(a));
       
       const container = document.getElementById('publications-container');
       const loadingDiv = document.getElementById('publications-loading');
@@ -355,14 +345,13 @@ function renderPublications() {
           const paperDiv = document.createElement('div');
           paperDiv.className = 'publication-item';
           
-          const venue = getVenueDisplay(entry);
-          const venueClass = getVenueBadge(venue);
+          const categoryBadge = getCategoryBadge(entry);
           const chicagoCitation = formatChicagoCitation(entry);
           
           paperDiv.innerHTML = `
             <div class="paper-number">${groupedByYear[year].length - index}</div>
             <div class="paper-content">
-              ${venue ? `<div class="paper-badge ${venueClass}">${venue}</div>` : ''}
+              ${categoryBadge ? `<div class="category-badge ${categoryBadge.class}">${categoryBadge.text}</div>` : ''}
               <div class="chicago-citation">${chicagoCitation}</div>
               
               <div class="paper-links">
