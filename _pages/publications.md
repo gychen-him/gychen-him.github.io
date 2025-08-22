@@ -96,15 +96,19 @@ function getVenueDisplay(entry) {
   return '';
 }
 
-// Format authors in Chicago style and bold my name
-function formatAuthors(authorsString) {
+// Format authors in Chicago style with special markings
+function formatAuthors(authorsString, entry) {
   if (!authorsString) return 'Unknown authors';
+  
+  // Get special author markers from BibTeX fields
+  const cofirstAuthors = entry.fields.cofirst ? entry.fields.cofirst.split(',').map(name => name.trim()) : [];
+  const correspondingAuthors = entry.fields.corresponding ? entry.fields.corresponding.split(',').map(name => name.trim()) : [];
   
   // Split authors by 'and' and clean up
   const authors = authorsString.split(' and ').map(author => author.trim());
   
   // Format each author (Last, First Middle)
-  const formattedAuthors = authors.map(author => {
+  const formattedAuthors = authors.map((author, index) => {
     // Handle different name formats
     let formatted = author;
     
@@ -121,30 +125,67 @@ function formatAuthors(authorsString) {
       }
     }
     
+    // Check if this author is a co-first author
+    const isCoFirst = cofirstAuthors.some(name => 
+      formatted.toLowerCase().includes(name.toLowerCase()) ||
+      author.toLowerCase().includes(name.toLowerCase())
+    );
+    
+    // Check if this author is a corresponding author
+    const isCorresponding = correspondingAuthors.some(name => 
+      formatted.toLowerCase().includes(name.toLowerCase()) ||
+      author.toLowerCase().includes(name.toLowerCase())
+    );
+    
     // Bold my name (check for various formats)
     if (formatted.toLowerCase().includes('guangyong') && formatted.toLowerCase().includes('chen')) {
       formatted = `<strong>${formatted}</strong>`;
     }
     
-    return formatted;
+    // Add markers
+    let markers = '';
+    if (isCoFirst) {
+      markers += '<sup class="author-marker cofirst">†</sup>';
+    }
+    if (isCorresponding) {
+      markers += '<sup class="author-marker corresponding">*</sup>';
+    }
+    
+    return formatted + markers;
   });
   
   // Join with Chicago style formatting
+  let result;
   if (formattedAuthors.length === 1) {
-    return formattedAuthors[0];
+    result = formattedAuthors[0];
   } else if (formattedAuthors.length === 2) {
-    return `${formattedAuthors[0]}, and ${formattedAuthors[1]}`;
+    result = `${formattedAuthors[0]}, and ${formattedAuthors[1]}`;
   } else {
     const lastAuthor = formattedAuthors[formattedAuthors.length - 1];
     const otherAuthors = formattedAuthors.slice(0, -1);
-    return `${otherAuthors.join(', ')}, and ${lastAuthor}`;
+    result = `${otherAuthors.join(', ')}, and ${lastAuthor}`;
   }
+  
+  // Add legend if there are special authors
+  let legend = '';
+  if (cofirstAuthors.length > 0 || correspondingAuthors.length > 0) {
+    const legendParts = [];
+    if (cofirstAuthors.length > 0) {
+      legendParts.push('<sup class="author-marker cofirst">†</sup> Co-first author');
+    }
+    if (correspondingAuthors.length > 0) {
+      legendParts.push('<sup class="author-marker corresponding">*</sup> Corresponding author');
+    }
+    legend = `<div class="author-legend">${legendParts.join(', ')}</div>`;
+  }
+  
+  return result + legend;
 }
 
 // Format citation in Chicago style
 function formatChicagoCitation(entry) {
   const title = entry.fields.title || 'Untitled';
-  const authors = formatAuthors(entry.fields.author);
+  const authors = formatAuthors(entry.fields.author, entry);
   const year = entry.fields.year || 'n.d.';
   
   let citation = `${authors}. "${title}."`;

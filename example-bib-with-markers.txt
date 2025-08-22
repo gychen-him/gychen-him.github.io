@@ -1,0 +1,52 @@
+## 如何在您的BibTeX文件中添加作者标记
+
+您可以在BibTeX条目中添加以下自定义字段：
+
+### 1. cofirst 字段 - 共同第一作者
+用于标记共同第一作者，多个作者用逗号分隔：
+
+```bibtex
+@article{example2024,
+  title={Example Paper with Co-first Authors},
+  author={Chen, Guangyong and Smith, John and Doe, Jane},
+  journal={Nature},
+  year={2024},
+  cofirst={Guangyong Chen, John Smith}
+}
+```
+
+### 2. corresponding 字段 - 通讯作者
+用于标记通讯作者，多个作者用逗号分隔：
+
+```bibtex
+@article{example2024,
+  title={Example Paper with Corresponding Author},
+  author={Smith, John and Chen, Guangyong and Doe, Jane},
+  journal={Nature},
+  year={2024},
+  corresponding={Guangyong Chen}
+}
+```
+
+### 3. 同时使用两个字段
+```bibtex
+@article{example2024,
+  title={Complex Authorship Example},
+  author={Smith, John and Chen, Guangyong and Doe, Jane and Wilson, Bob},
+  journal={Nature Machine Intelligence},
+  year={2024},
+  cofirst={John Smith, Guangyong Chen},
+  corresponding={Guangyong Chen, Bob Wilson}
+}
+```
+
+### 显示效果：
+- 共同第一作者会显示红色的 † 符号
+- 通讯作者会显示蓝色的 * 符号  
+- 您的名字(Guangyong Chen)会自动加粗
+- 每篇论文下方会显示符号说明
+
+### 名字匹配规则：
+- 支持 "Guangyong Chen" 或 "Chen, Guangyong" 格式
+- 不区分大小写
+- 支持部分匹配，如只写 "Chen" 也能匹配

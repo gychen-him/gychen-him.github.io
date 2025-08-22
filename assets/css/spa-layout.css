@@ -537,6 +537,32 @@
   color: #2c5aa0;
 }
 
+/* Author markers styling */
+.author-marker {
+  font-size: 0.8em;
+  margin-left: 0.2em;
+  font-weight: 600;
+}
+
+.author-marker.cofirst {
+  color: #d73027; /* Red for co-first author */
+}
+
+.author-marker.corresponding {
+  color: #2166ac; /* Blue for corresponding author */
+}
+
+.author-legend {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0.3em;
+  font-style: italic;
+}
+
+.author-legend .author-marker {
+  margin-right: 0.3em;
+}
+
 .publication-item .paper-links {
   margin-top: 0.5em;
 }
