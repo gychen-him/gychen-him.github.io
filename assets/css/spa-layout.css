@@ -22,6 +22,7 @@
   flex: 1;
   min-width: 0;
   max-width: calc(100% - 280px - 2em);
+  position: relative;
 }
 
 /* Ensure content matches the original theme styling */
@@ -118,13 +119,33 @@
   font-weight: 600;
 }
 
-/* Smooth transitions */
+/* Smooth transitions for SPA navigation */
 .spa-content {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .spa-content.loading {
   opacity: 0.7;
+  transform: translateY(10px);
+}
+
+/* Loading indicator for navigation */
+.spa-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #52adc8, #7bc7d8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.spa-content.loading::before {
+  transform: scaleX(1);
 }
 
 /* Publications page specific styling */
