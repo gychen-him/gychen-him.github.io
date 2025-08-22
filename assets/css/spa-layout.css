@@ -1,89 +1,85 @@
-/* SPA Layout Styles - Responsive Design */
+/* SPA Layout Styles - Clean and Simple */
+
 .spa-container {
   display: flex;
-  width: 100%;
-  max-width: 100vw;
-  margin: 0;
-  padding: 1em;
-  gap: 1.5em;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1em;
+  gap: 2em;
   min-height: calc(100vh - 80px);
-  box-sizing: border-box;
+  align-items: flex-start;
 }
 
 .spa-sidebar {
-  flex: 0 0 clamp(250px, 20vw, 300px); /* Dynamic width: min 250px, max 300px, 20% of viewport */
+  flex: 0 0 280px;
   position: sticky;
   top: 1em;
-  height: fit-content;
-  padding: 0;
-  min-width: 250px; /* Ensure minimum usable width */
+  max-height: calc(100vh - 2em);
+  overflow-y: auto;
 }
 
 .spa-content {
   flex: 1;
   min-width: 0;
-  max-width: calc(100% - clamp(250px, 20vw, 300px) - 1.5em);
-  padding: 0;
+  max-width: calc(100% - 280px - 2em);
 }
 
-/* Page content styling to match original */
-.spa-content .page__inner-wrap {
-  width: 100%;
-  max-width: none;
-}
-
-.spa-content .page__content {
-  width: 100%;
+/* Ensure content matches the original theme styling */
+.spa-content .page {
   margin: 0;
   padding: 0;
 }
 
-/* Loading animation */
-.content-loading {
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+.spa-content .page__inner-wrap {
+  margin: 0;
+  padding: 0;
 }
 
-.content-loaded {
-  opacity: 1;
-  transition: opacity 0.3s ease;
+.spa-content .page__content {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
 }
 
-/* Enhanced Responsive Design */
+/* Responsive Design */
 
-/* Large screens - optimize space usage */
+/* Large screens */
 @media (min-width: 1400px) {
   .spa-container {
     max-width: 1400px;
-    margin: 0 auto;
-    padding: 2em;
+    padding: 0 2em;
   }
   
   .spa-sidebar {
-    flex: 0 0 280px;
+    flex: 0 0 300px;
+  }
+  
+  .spa-content {
+    max-width: calc(100% - 300px - 2em);
   }
 }
 
-/* Medium to large screens */
-@media (min-width: 992px) and (max-width: 1399px) {
+/* Medium screens */
+@media (min-width: 1024px) and (max-width: 1399px) {
   .spa-container {
-    padding: 1.5em;
-  }
-  
-  .spa-sidebar {
-    flex: 0 0 clamp(250px, 18vw, 280px);
+    max-width: 1200px;
   }
 }
 
 /* Tablet screens */
-@media (min-width: 769px) and (max-width: 991px) {
+@media (min-width: 769px) and (max-width: 1023px) {
   .spa-container {
-    padding: 1em;
-    gap: 1em;
+    padding: 0 1em;
+    gap: 1.5em;
   }
   
   .spa-sidebar {
-    flex: 0 0 clamp(220px, 25vw, 250px);
+    flex: 0 0 250px;
+  }
+  
+  .spa-content {
+    max-width: calc(100% - 250px - 1.5em);
   }
 }
 
@@ -91,7 +87,7 @@
 @media (max-width: 768px) {
   .spa-container {
     flex-direction: column;
-    padding: 0.5em;
+    padding: 0 1em;
     gap: 1em;
   }
   
@@ -99,23 +95,81 @@
     flex: none;
     position: relative;
     width: 100%;
-    min-width: auto;
+    max-height: none;
+    order: 1;
   }
   
   .spa-content {
     max-width: 100%;
+    order: 2;
   }
 }
 
 /* Very small screens */
 @media (max-width: 480px) {
   .spa-container {
-    padding: 0.25em;
+    padding: 0 0.5em;
   }
 }
 
-/* Active navigation state */
-.masthead__menu-item a.active {
+/* Navigation highlighting */
+.greedy-nav a.current {
+  color: #52adc8 !important;
+  font-weight: 600;
+}
+
+/* Smooth transitions */
+.spa-content {
+  transition: opacity 0.3s ease;
+}
+
+.spa-content.loading {
+  opacity: 0.7;
+}
+
+/* Publications page specific styling */
+.paper-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
+}
+
+.paper-item:last-child {
+  border-bottom: none;
+}
+
+.paper-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.paper-authors {
+  color: #666;
+  margin-bottom: 0.3em;
+  font-size: 0.95em;
+}
+
+.paper-venue {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
+
+.paper-links {
+  margin-top: 0.5em;
+}
+
+.paper-links a {
   color: #52adc8;
-  font-weight: bold;
+  text-decoration: none;
+  margin-right: 1em;
+  font-size: 0.9em;
+}
+
+.paper-links a:hover {
+  text-decoration: underline;
 }
