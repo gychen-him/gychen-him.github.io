@@ -133,11 +133,15 @@ function getVenueBadge(venue) {
   return 'other';
 }
 
-// Check if entry is arXiv preprint
-function isArxivPreprint(entry) {
+// Check if entry is preprint (arXiv or bioRxiv)
+function isPreprint(entry) {
   const venue = entry.fields.journal || entry.fields.booktitle || entry.fields.publisher || '';
-  return venue.toLowerCase().includes('arxiv') || 
-         (entry.fields.eprint && entry.fields.eprint.includes('arxiv'));
+  const venueLower = venue.toLowerCase();
+  
+  return venueLower.includes('arxiv') || 
+         venueLower.includes('biorxiv') ||
+         venueLower.includes('bioarxiv') ||
+         (entry.fields.eprint && (entry.fields.eprint.includes('arxiv') || entry.fields.eprint.includes('biorxiv')));
 }
 
 // Get venue display name
@@ -300,8 +304,8 @@ function renderPublications() {
     .then(bibtexText => {
       const entries = parseBibtex(bibtexText);
       
-      // Filter out arXiv preprints
-      const publishedEntries = entries.filter(entry => !isArxivPreprint(entry));
+      // Filter out preprints (arXiv and bioRxiv)
+      const publishedEntries = entries.filter(entry => !isPreprint(entry));
       
       // Group by year
       const groupedByYear = {};
