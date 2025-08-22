@@ -248,13 +248,20 @@ function formatAuthors(authorsString, entry) {
   return result + legend;
 }
 
-// Format citation in Chicago style
+// Format citation in Chicago style with proper formatting
 function formatChicagoCitation(entry) {
   const title = entry.fields.title || 'Untitled';
   const authors = formatAuthors(entry.fields.author, entry);
   const year = entry.fields.year || 'n.d.';
   
-  let citation = `${authors}. "${title}."`;
+  // Start with authors (without period here since legend might be included)
+  let citation = `<div class="citation-authors">${authors}</div>`;
+  
+  // Add title on new line
+  citation += `<div class="citation-title">"${title}."</div>`;
+  
+  // Add venue information
+  citation += '<div class="citation-venue">';
   
   if (entry.fields.journal) {
     // Journal article
@@ -263,7 +270,7 @@ function formatChicagoCitation(entry) {
     const number = entry.fields.number;
     const pages = entry.fields.pages;
     
-    citation += ` <em>${journal}</em>`;
+    citation += `<em><strong>${journal}</strong></em>`;
     if (volume) {
       citation += ` ${volume}`;
       if (number) {
@@ -281,7 +288,7 @@ function formatChicagoCitation(entry) {
     const booktitle = entry.fields.booktitle;
     const pages = entry.fields.pages;
     
-    citation += ` In <em>${booktitle}</em>`;
+    citation += `In <em><strong>${booktitle}</strong></em>`;
     if (pages) {
       citation += `, ${pages}`;
     }
@@ -290,10 +297,12 @@ function formatChicagoCitation(entry) {
   } else if (entry.fields.publisher) {
     // Book or other publication
     const publisher = entry.fields.publisher;
-    citation += ` ${publisher}, ${year}.`;
+    citation += `<strong>${publisher}</strong>, ${year}.`;
   } else {
-    citation += ` ${year}.`;
+    citation += `${year}.`;
   }
+  
+  citation += '</div>';
   
   return citation;
 }
