@@ -2,16 +2,16 @@
 
 .spa-container {
   display: flex;
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1em;
-  gap: 2em;
+  padding: 0 1.5em;
+  gap: 1.5em;
   min-height: calc(100vh - 80px);
   align-items: flex-start;
 }
 
 .spa-sidebar {
-  flex: 0 0 280px;
+  flex: 0 0 260px;
   position: sticky;
   top: 1em;
   max-height: calc(100vh - 2em);
@@ -21,7 +21,6 @@
 .spa-content {
   flex: 1;
   min-width: 0;
-  max-width: calc(100% - 280px - 2em);
   position: relative;
 }
 
@@ -38,7 +37,7 @@
 
 .spa-content .page__content {
   margin: 0;
-  padding: 0;
+  padding: 0 0.5em 0 0;
   font-size: inherit;
   line-height: inherit;
 }
@@ -48,23 +47,21 @@
 /* Large screens */
 @media (min-width: 1400px) {
   .spa-container {
-    max-width: 1400px;
+    max-width: 1600px;
     padding: 0 2em;
+    gap: 2em;
   }
   
   .spa-sidebar {
-    flex: 0 0 300px;
-  }
-  
-  .spa-content {
-    max-width: calc(100% - 300px - 2em);
+    flex: 0 0 280px;
   }
 }
 
 /* Medium screens */
 @media (min-width: 1024px) and (max-width: 1399px) {
   .spa-container {
-    max-width: 1200px;
+    max-width: 1300px;
+    gap: 1.5em;
   }
 }
 
