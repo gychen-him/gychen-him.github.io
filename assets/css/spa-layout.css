@@ -221,6 +221,16 @@
   font-weight: 600;
 }
 
+/* Hide unnecessary navigation elements */
+.greedy-nav button,
+.greedy-nav .hidden-links {
+  display: none !important;
+}
+
+.greedy-nav .visible-links {
+  width: 100% !important;
+}
+
 /* Smooth transitions for SPA navigation */
 .spa-content {
   transition: opacity 0.3s ease, transform 0.3s ease;
