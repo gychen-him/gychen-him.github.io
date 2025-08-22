@@ -6,7 +6,7 @@ author_profile: true
 redirect_from: 
   - /about/
   - /about.html
-layout: default
+layout: spa
 ---
 
 {% if site.google_scholar_stats_use_cdn %}

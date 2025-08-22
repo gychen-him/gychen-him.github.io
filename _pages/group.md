@@ -5,7 +5,7 @@ excerpt: "Research Group Members"
 author_profile: true
 redirect_from: 
   - /group.html
-layout: default
+layout: spa
 ---
 
 # 👥 Research Group
