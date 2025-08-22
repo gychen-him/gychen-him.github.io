@@ -309,3 +309,242 @@
   border-radius: 4px;
   display: inline-block;
 }
+
+/* Research Pipeline Visualization */
+.research-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em 0;
+  padding: 2em;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.pipeline-step {
+  background: white;
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 180px;
+  max-width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pipeline-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.step-icon {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.step-content h4 {
+  margin: 0.5em 0;
+  color: #2c5aa0;
+  font-size: 1.1em;
+}
+
+.step-content p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.pipeline-arrow {
+  font-size: 2em;
+  color: #52adc8;
+  font-weight: bold;
+  margin: 0 0.5em;
+}
+
+/* Featured Papers */
+.featured-papers {
+  display: grid;
+  gap: 2em;
+  margin: 2em 0;
+}
+
+.featured-paper {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.featured-paper:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.paper-badge {
+  display: inline-block;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  letter-spacing: 0.5px;
+}
+
+.paper-badge.nature {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  color: #155724;
+}
+
+.paper-badge.neurips {
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+  color: #721c24;
+}
+
+.paper-badge.icml {
+  background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+  color: #0c5460;
+}
+
+.featured-paper .paper-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #2c5aa0;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+.featured-paper .paper-authors {
+  color: #495057;
+  margin-bottom: 0.3em;
+  font-size: 0.95em;
+}
+
+.featured-paper .paper-venue {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  font-style: italic;
+}
+
+.paper-description {
+  color: #6c757d;
+  margin: 1em 0;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+.featured-paper .paper-links {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid #e9ecef;
+}
+
+.featured-paper .paper-links a {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #52adc8;
+  text-decoration: none;
+  padding: 0.4em 0.8em;
+  border-radius: 6px;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 0.85em;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.featured-paper .paper-links a:hover {
+  background: #52adc8;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Research Areas */
+.research-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+.research-area {
+  background: #f8f9fa;
+  padding: 1.5em;
+  border-radius: 8px;
+  border-left: 4px solid #52adc8;
+}
+
+.research-area h4 {
+  margin: 0 0 0.5em 0;
+  color: #2c5aa0;
+  font-size: 1.1em;
+}
+
+.research-area p {
+  margin: 0;
+  color: #6c757d;
+  line-height: 1.5;
+  font-size: 0.9em;
+}
+
+/* Scholar Stats */
+.scholar-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: 2em 0;
+  padding: 2em;
+  background: linear-gradient(135deg, #52adc8, #7bc7d8);
+  border-radius: 12px;
+  color: white;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 100px;
+}
+
+.stat-number {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.stat-label {
+  font-size: 0.9em;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design for Publications Page */
+@media (max-width: 768px) {
+  .research-pipeline {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    margin: 0.5em 0;
+  }
+  
+  .pipeline-step {
+    max-width: 280px;
+  }
+  
+  .scholar-stats {
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .research-areas {
+    grid-template-columns: 1fr;
+  }
+}
