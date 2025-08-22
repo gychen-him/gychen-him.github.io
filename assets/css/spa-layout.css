@@ -515,7 +515,8 @@
   flex: 1;
   min-width: 0;
   position: relative;
-  padding-right: 4em; /* Reserve space for watermark */
+  padding-right: 2.5em; /* Reserve space for bottom-right watermark */
+  padding-bottom: 0.5em; /* Reserve space for bottom watermark */
   z-index: 2; /* Ensure content is above watermark */
 }
 
@@ -702,7 +703,7 @@
 /* Research category watermarks - elegant transparent background text */
 .category-badge {
   position: absolute;
-  top: 8px;
+  bottom: 12px;
   right: 15px;
   font-size: 1.8em;
   font-weight: 800;
