@@ -1,22 +1,25 @@
 /* SPA Layout Styles */
 .spa-container {
   display: flex;
-  min-height: calc(100vh - 80px); /* Adjust based on your masthead height */
-  gap: 0;
+  max-width: 1280px; /* Match original max-width */
+  margin: 0 auto;
+  padding: 1em;
+  gap: 2em;
+  min-height: calc(100vh - 80px);
 }
 
 .spa-sidebar {
-  flex: 0 0 300px; /* Fixed width sidebar */
+  flex: 0 0 200px; /* Roughly 2/12 ratio, but smaller for better proportions */
   position: sticky;
-  top: 0;
+  top: 1em;
   height: fit-content;
-  padding: 1em;
+  padding: 0;
 }
 
 .spa-content {
-  flex: 1;
-  padding: 1em;
+  flex: 1; /* Takes remaining space */
   min-width: 0; /* Prevent flex item from overflowing */
+  max-width: calc(100% - 200px - 2em); /* Ensure it doesn't overflow */
 }
 
 /* Loading animation */
