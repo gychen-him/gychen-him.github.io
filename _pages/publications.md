@@ -5,7 +5,7 @@ excerpt: "List of Publications"
 author_profile: true
 redirect_from: 
   - /publications.html
-layout: default
+layout: spa
 ---
 
 # 📝 Publications
