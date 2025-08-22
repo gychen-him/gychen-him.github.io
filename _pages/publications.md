@@ -8,7 +8,7 @@ redirect_from:
 layout: spa
 ---
 
-# 📝 Publications
+# Publications
 
 **Total Publications**: <span id="total-count">Loading...</span> published papers
 
@@ -332,7 +332,7 @@ function renderPublications() {
         
         const yearHeader = document.createElement('h3');
         yearHeader.className = 'year-header';
-        yearHeader.innerHTML = `📅 ${year} <span class="year-count">(${groupedByYear[year].length} papers)</span>`;
+        yearHeader.innerHTML = `${year} <span class="year-count">(${groupedByYear[year].length} papers)</span>`;
         yearSection.appendChild(yearHeader);
         
         const yearPapers = document.createElement('div');

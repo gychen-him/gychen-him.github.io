@@ -8,7 +8,7 @@ redirect_from:
 layout: spa
 ---
 
-# 👥 Research Group
+# Research Group
 
 ## Principal Investigator
 **Guangyong Chen**  
@@ -45,4 +45,4 @@ We are always looking for talented and motivated researchers to join our team. I
 
 Please feel free to contact me with your CV and research interests.
 
-📧 Email: chenguangyong@him.cas.cn
+Email: chenguangyong@him.cas.cn

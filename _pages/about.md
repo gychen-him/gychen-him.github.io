@@ -25,8 +25,8 @@ My research focuses on developing next-generation computational tools for medica
 I have published over 40 papers as first or corresponding author in prestigious journals and conferences including *Nature Machine Intelligence*, *Nature Computational Science*, *Nature Communications*, ICML, ICLR, and NeurIPS. I currently lead several major research projects including National Key R&D Program International Cooperation Projects and National Natural Science Foundation projects.
 
 
-# 🔥 News
-- *2025.01*: &nbsp;🎉🎉 New paper accepted at Nature Communications on protein folding!
-- *2024.12*: &nbsp;📢 Gave an invited talk at the AI for Drug Discovery Workshop
-- *2024.11*: &nbsp;🏆 Received the Outstanding Young Scientist Award from CAS
-- *2024.10*: &nbsp;🚀 Launched new collaboration with pharmaceutical companies on AI-driven drug design
+# News
+- *2025.01*: New paper accepted at Nature Communications on protein folding
+- *2024.12*: Gave an invited talk at the AI for Drug Discovery Workshop
+- *2024.11*: Received the Outstanding Young Scientist Award from CAS
+- *2024.10*: Launched new collaboration with pharmaceutical companies on AI-driven drug design
