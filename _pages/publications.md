@@ -188,19 +188,34 @@ function formatAuthors(authorsString, entry) {
       displayName = cleanAuthor;
     }
     
-    // Check if this author is a co-first author (check against both formats)
-    const isCoFirst = cofirstAuthors.some(name => {
-      const nameLower = name.toLowerCase();
-      return displayName.toLowerCase().includes(nameLower) ||
-             cleanAuthor.toLowerCase().includes(nameLower);
-    });
+    // Precise full name matching function
+    const matchesFullName = (authorName, targetName) => {
+      const normalizeName = (name) => {
+        name = name.toLowerCase().trim();
+        // Convert "Last, First" to "First Last" for comparison
+        if (name.includes(',')) {
+          const [last, first] = name.split(',').map(p => p.trim());
+          return `${first} ${last}`;
+        }
+        return name;
+      };
+      
+      const normalizedAuthor = normalizeName(authorName);
+      const normalizedTarget = normalizeName(targetName);
+      
+      // Must match the complete normalized name
+      return normalizedAuthor === normalizedTarget;
+    };
     
-    // Check if this author is a corresponding author
-    const isCorresponding = correspondingAuthors.some(name => {
-      const nameLower = name.toLowerCase();
-      return displayName.toLowerCase().includes(nameLower) ||
-             cleanAuthor.toLowerCase().includes(nameLower);
-    });
+    // Check if this author is a co-first author (full name match only)
+    const isCoFirst = cofirstAuthors.some(name => 
+      matchesFullName(displayName, name) || matchesFullName(cleanAuthor, name)
+    );
+    
+    // Check if this author is a corresponding author (full name match only)
+    const isCorresponding = correspondingAuthors.some(name => 
+      matchesFullName(displayName, name) || matchesFullName(cleanAuthor, name)
+    );
     
     // Bold my name (check for various formats)
     if (displayName.toLowerCase().includes('guangyong') && displayName.toLowerCase().includes('chen')) {
