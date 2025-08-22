@@ -8,7 +8,7 @@
 ```bibtex
 @article{example2024,
   title={Example Paper with Co-first Authors},
-  author={Chen, Guangyong and Smith, John and Doe, Jane},
+  author={Guangyong Chen and John Smith and Jane Doe},
   journal={Nature},
   year={2024},
   cofirst={Guangyong Chen, John Smith}
@@ -21,7 +21,7 @@
 ```bibtex
 @article{example2024,
   title={Example Paper with Corresponding Author},
-  author={Smith, John and Chen, Guangyong and Doe, Jane},
+  author={John Smith and Guangyong Chen and Jane Doe},
   journal={Nature},
   year={2024},
   corresponding={Guangyong Chen}
@@ -32,13 +32,23 @@
 ```bibtex
 @article{example2024,
   title={Complex Authorship Example},
-  author={Smith, John and Chen, Guangyong and Doe, Jane and Wilson, Bob},
+  author={John Smith and Guangyong Chen and Jane Doe and Bob Wilson},
   journal={Nature Machine Intelligence},
   year={2024},
   cofirst={John Smith, Guangyong Chen},
   corresponding={Guangyong Chen, Bob Wilson}
 }
 ```
+
+### 重要说明：
+**BibTeX author字段格式**: 
+- 作者之间用 `and` 分隔
+- 每个作者写成 "First Last" 格式，如 `Guangyong Chen`
+- 不要在单个作者名字内使用逗号
+
+**标记字段格式**:
+- `cofirst` 和 `corresponding` 字段中的作者名用逗号分隔
+- 作者名格式要与 `author` 字段中的格式一致
 
 ### 显示效果：
 - 共同第一作者会显示红色的 † 符号

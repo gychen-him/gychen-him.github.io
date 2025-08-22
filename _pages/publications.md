@@ -107,39 +107,44 @@ function formatAuthors(authorsString, entry) {
   // Split authors by 'and' and clean up
   const authors = authorsString.split(' and ').map(author => author.trim());
   
-  // Format each author (Last, First Middle)
+  // Format each author for Chicago style (First Last format, no internal commas)
   const formattedAuthors = authors.map((author, index) => {
-    // Handle different name formats
-    let formatted = author;
+    // Clean up the author name (remove extra whitespace)
+    let cleanAuthor = author.trim();
     
-    // If author contains comma, it's already in "Last, First" format
-    if (author.includes(',')) {
-      formatted = author;
-    } else {
-      // Split by spaces and rearrange to "Last, First"
-      const parts = author.split(' ');
-      if (parts.length >= 2) {
-        const lastName = parts[parts.length - 1];
-        const firstNames = parts.slice(0, -1).join(' ');
-        formatted = `${lastName}, ${firstNames}`;
+    // For Chicago style, we keep names in "First Last" format for display
+    // but we need to handle "Last, First" format if it exists in BibTeX
+    let displayName;
+    if (cleanAuthor.includes(',')) {
+      // Convert "Last, First" to "First Last"
+      const parts = cleanAuthor.split(',').map(p => p.trim());
+      if (parts.length === 2) {
+        displayName = `${parts[1]} ${parts[0]}`;
+      } else {
+        displayName = cleanAuthor;
       }
+    } else {
+      // Already in "First Last" format
+      displayName = cleanAuthor;
     }
     
-    // Check if this author is a co-first author
-    const isCoFirst = cofirstAuthors.some(name => 
-      formatted.toLowerCase().includes(name.toLowerCase()) ||
-      author.toLowerCase().includes(name.toLowerCase())
-    );
+    // Check if this author is a co-first author (check against both formats)
+    const isCoFirst = cofirstAuthors.some(name => {
+      const nameLower = name.toLowerCase();
+      return displayName.toLowerCase().includes(nameLower) ||
+             cleanAuthor.toLowerCase().includes(nameLower);
+    });
     
     // Check if this author is a corresponding author
-    const isCorresponding = correspondingAuthors.some(name => 
-      formatted.toLowerCase().includes(name.toLowerCase()) ||
-      author.toLowerCase().includes(name.toLowerCase())
-    );
+    const isCorresponding = correspondingAuthors.some(name => {
+      const nameLower = name.toLowerCase();
+      return displayName.toLowerCase().includes(nameLower) ||
+             cleanAuthor.toLowerCase().includes(nameLower);
+    });
     
     // Bold my name (check for various formats)
-    if (formatted.toLowerCase().includes('guangyong') && formatted.toLowerCase().includes('chen')) {
-      formatted = `<strong>${formatted}</strong>`;
+    if (displayName.toLowerCase().includes('guangyong') && displayName.toLowerCase().includes('chen')) {
+      displayName = `<strong>${displayName}</strong>`;
     }
     
     // Add markers
@@ -151,7 +156,7 @@ function formatAuthors(authorsString, entry) {
       markers += '<sup class="author-marker corresponding">*</sup>';
     }
     
-    return formatted + markers;
+    return displayName + markers;
   });
   
   // Join with Chicago style formatting
