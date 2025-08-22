@@ -233,21 +233,38 @@
   display: flex !important;
   justify-content: flex-start !important;
   align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .masthead__inner-wrap {
   display: flex !important;
   justify-content: flex-start !important;
   align-items: center !important;
+  text-align: left !important;
 }
 
 .masthead__menu {
   width: auto !important;
+  float: none !important;
+  text-align: left !important;
 }
 
 .greedy-nav {
   width: auto !important;
   float: none !important;
+  text-align: left !important;
+}
+
+/* Ensure navigation items align properly */
+.masthead__menu-item {
+  display: inline-block !important;
+  float: none !important;
+}
+
+.masthead__menu ul {
+  text-align: left !important;
+  justify-content: flex-start !important;
 }
 
 /* Smooth transitions for SPA navigation */

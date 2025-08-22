@@ -27,15 +27,18 @@ class SPANavigation {
     });
   }
 
-  bindNavigationLinks() {
-    this.navLinks.forEach(link => {
+    bindNavigationLinks() {
+    // Get all navigation links including the homepage link
+    const allNavLinks = document.querySelectorAll('.masthead__menu-item a, .greedy-nav a');
+    
+    allNavLinks.forEach(link => {
       const href = link.getAttribute('href');
-      
+
       // Skip external links, anchor links, and mailto links
       if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) {
         return;
       }
-      
+
       // Only bind to internal page links
       const internalPages = ['/', '/publications/', '/group/'];
       if (internalPages.includes(href)) {
