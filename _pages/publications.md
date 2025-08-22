@@ -310,7 +310,12 @@ function formatChicagoCitation(entry) {
 // Render publications from BibTeX
 function renderPublications() {
   fetch('/pub.bib')
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
     .then(bibtexText => {
       const entries = parseBibtex(bibtexText);
       

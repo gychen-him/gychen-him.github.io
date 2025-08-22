@@ -162,6 +162,22 @@ class SPANavigation {
     if (window.initializeGoogleScholarStats) {
       window.initializeGoogleScholarStats();
     }
+    
+    // Execute page-specific scripts
+    const scripts = this.contentArea.querySelectorAll('script');
+    scripts.forEach(script => {
+      if (script.innerHTML.trim()) {
+        try {
+          // Create a new script element and execute it
+          const newScript = document.createElement('script');
+          newScript.innerHTML = script.innerHTML;
+          document.head.appendChild(newScript);
+          document.head.removeChild(newScript);
+        } catch (error) {
+          console.error('Error executing script:', error);
+        }
+      }
+    });
   }
 }
 
