@@ -2,7 +2,7 @@
 
 .spa-container {
   display: flex;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 1.5em;
   gap: 1.5em;
@@ -45,15 +45,28 @@
 /* Responsive Design */
 
 /* Large screens */
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   .spa-container {
-    max-width: 1600px;
+    max-width: 1800px;
     padding: 0 2em;
     gap: 2em;
   }
   
   .spa-sidebar {
-    flex: 0 0 280px;
+    flex: 0 0 300px;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+  .spa-container {
+    max-width: 2000px;
+    padding: 0 3em;
+    gap: 3em;
+  }
+  
+  .spa-sidebar {
+    flex: 0 0 320px;
   }
 }
 
@@ -69,15 +82,11 @@
 @media (min-width: 769px) and (max-width: 1023px) {
   .spa-container {
     padding: 0 1em;
-    gap: 1.5em;
+    gap: 1em;
   }
   
   .spa-sidebar {
-    flex: 0 0 250px;
-  }
-  
-  .spa-content {
-    max-width: calc(100% - 250px - 1.5em);
+    flex: 0 0 240px;
   }
 }
 
