@@ -96,6 +96,101 @@ function getVenueDisplay(entry) {
   return '';
 }
 
+// Format authors in Chicago style and bold my name
+function formatAuthors(authorsString) {
+  if (!authorsString) return 'Unknown authors';
+  
+  // Split authors by 'and' and clean up
+  const authors = authorsString.split(' and ').map(author => author.trim());
+  
+  // Format each author (Last, First Middle)
+  const formattedAuthors = authors.map(author => {
+    // Handle different name formats
+    let formatted = author;
+    
+    // If author contains comma, it's already in "Last, First" format
+    if (author.includes(',')) {
+      formatted = author;
+    } else {
+      // Split by spaces and rearrange to "Last, First"
+      const parts = author.split(' ');
+      if (parts.length >= 2) {
+        const lastName = parts[parts.length - 1];
+        const firstNames = parts.slice(0, -1).join(' ');
+        formatted = `${lastName}, ${firstNames}`;
+      }
+    }
+    
+    // Bold my name (check for various formats)
+    if (formatted.toLowerCase().includes('guangyong') && formatted.toLowerCase().includes('chen')) {
+      formatted = `<strong>${formatted}</strong>`;
+    }
+    
+    return formatted;
+  });
+  
+  // Join with Chicago style formatting
+  if (formattedAuthors.length === 1) {
+    return formattedAuthors[0];
+  } else if (formattedAuthors.length === 2) {
+    return `${formattedAuthors[0]}, and ${formattedAuthors[1]}`;
+  } else {
+    const lastAuthor = formattedAuthors[formattedAuthors.length - 1];
+    const otherAuthors = formattedAuthors.slice(0, -1);
+    return `${otherAuthors.join(', ')}, and ${lastAuthor}`;
+  }
+}
+
+// Format citation in Chicago style
+function formatChicagoCitation(entry) {
+  const title = entry.fields.title || 'Untitled';
+  const authors = formatAuthors(entry.fields.author);
+  const year = entry.fields.year || 'n.d.';
+  
+  let citation = `${authors}. "${title}."`;
+  
+  if (entry.fields.journal) {
+    // Journal article
+    const journal = entry.fields.journal;
+    const volume = entry.fields.volume;
+    const number = entry.fields.number;
+    const pages = entry.fields.pages;
+    
+    citation += ` <em>${journal}</em>`;
+    if (volume) {
+      citation += ` ${volume}`;
+      if (number) {
+        citation += `, no. ${number}`;
+      }
+    }
+    citation += ` (${year})`;
+    if (pages) {
+      citation += `: ${pages}`;
+    }
+    citation += '.';
+    
+  } else if (entry.fields.booktitle) {
+    // Conference paper
+    const booktitle = entry.fields.booktitle;
+    const pages = entry.fields.pages;
+    
+    citation += ` In <em>${booktitle}</em>`;
+    if (pages) {
+      citation += `, ${pages}`;
+    }
+    citation += `. ${year}.`;
+    
+  } else if (entry.fields.publisher) {
+    // Book or other publication
+    const publisher = entry.fields.publisher;
+    citation += ` ${publisher}, ${year}.`;
+  } else {
+    citation += ` ${year}.`;
+  }
+  
+  return citation;
+}
+
 // Render publications from BibTeX
 function renderPublications() {
   fetch('/pub.bib')
@@ -145,17 +240,15 @@ function renderPublications() {
           const paperDiv = document.createElement('div');
           paperDiv.className = 'publication-item';
           
-          const title = entry.fields.title || 'Untitled';
-          const authors = entry.fields.author || 'Unknown authors';
           const venue = getVenueDisplay(entry);
           const venueClass = getVenueBadge(venue);
+          const chicagoCitation = formatChicagoCitation(entry);
           
           paperDiv.innerHTML = `
             <div class="paper-number">${groupedByYear[year].length - index}</div>
             <div class="paper-content">
               ${venue ? `<div class="paper-badge ${venueClass}">${venue}</div>` : ''}
-              <div class="paper-title">${title}</div>
-              <div class="paper-authors">${authors}</div>
+              <div class="chicago-citation">${chicagoCitation}</div>
               
               <div class="paper-links">
                 ${entry.fields.url ? `<a href="${entry.fields.url}" target="_blank">📄 Paper</a>` : ''}

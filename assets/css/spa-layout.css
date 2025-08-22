@@ -443,6 +443,23 @@
   font-size: 0.9em;
 }
 
+.chicago-citation {
+  color: #333;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 0.8em;
+  text-align: justify;
+}
+
+.chicago-citation em {
+  font-style: italic;
+}
+
+.chicago-citation strong {
+  font-weight: 600;
+  color: #2c5aa0;
+}
+
 .publication-item .paper-links {
   margin-top: 0.5em;
 }
