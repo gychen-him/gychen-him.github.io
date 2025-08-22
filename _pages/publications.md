@@ -23,7 +23,55 @@ layout: spa
 For a complete and up-to-date list including preprints, please visit my [**Google Scholar profile**](https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate).
 
 <script>
-// Parse BibTeX content
+// Normalize author name from various formats to "First Last"
+function normalizeAuthorName(authorName) {
+  authorName = authorName.trim();
+  
+  if (authorName.includes(',')) {
+    // Handle "Last, First" format
+    const parts = authorName.split(',');
+    if (parts.length === 2) {
+      const lastName = parts[0].trim();
+      const firstName = parts[1].trim();
+      
+      // Normalize case
+      const normalizedLast = normalizeCase(lastName);
+      const normalizedFirst = normalizeCase(firstName);
+      
+      return `${normalizedFirst} ${normalizedLast}`;
+    }
+  }
+  
+  // Already in "First Last" format, just normalize case
+  return normalizeCase(authorName);
+}
+
+// Normalize case of names (handle ALL CAPS -> Proper Case)
+function normalizeCase(name) {
+  if (name === name.toUpperCase()) {
+    // Handle ALL CAPS case
+    return name.split('-').map(part => 
+      part.charAt(0) + part.slice(1).toLowerCase()
+    ).join('-');
+  }
+  return name; // Keep existing case
+}
+
+// Normalize author field string
+function normalizeAuthors(authorString) {
+  if (!authorString) return authorString;
+  
+  // Split by 'and' (case insensitive)
+  const authors = authorString.split(/\s+and\s+/i);
+  
+  // Normalize each author
+  const normalizedAuthors = authors.map(author => normalizeAuthorName(author));
+  
+  // Join back with ' and '
+  return normalizedAuthors.join(' and ');
+}
+
+// Parse BibTeX content with automatic author normalization
 function parseBibtex(bibtexText) {
   const entries = [];
   const regex = /@(\w+)\s*\{\s*([^,]+),\s*([\s\S]*?)\n\}/g;
@@ -39,9 +87,17 @@ function parseBibtex(bibtexText) {
     
     while ((fieldMatch = fieldRegex.exec(fieldsStr)) !== null) {
       const fieldName = fieldMatch[1] || fieldMatch[3];
-      const fieldValue = fieldMatch[2] || fieldMatch[4];
+      let fieldValue = fieldMatch[2] || fieldMatch[4];
+      
       if (fieldName && fieldValue) {
-        fields[fieldName.toLowerCase()] = fieldValue.trim();
+        fieldValue = fieldValue.trim();
+        
+        // Auto-normalize author field
+        if (fieldName.toLowerCase() === 'author') {
+          fieldValue = normalizeAuthors(fieldValue);
+        }
+        
+        fields[fieldName.toLowerCase()] = fieldValue;
       }
     }
     
