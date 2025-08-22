@@ -1,7 +1,7 @@
 ---
 permalink: /publications/
 title: "Publications"
-excerpt: "Selected Publications and Research Overview"
+excerpt: "Publications List"
 author_profile: true
 redirect_from:
   - /publications.html
@@ -10,43 +10,7 @@ layout: spa
 
 # 📝 Publications
 
-## 🔬 Research Overview
-
-My research focuses on developing next-generation computational tools for medical AI and drug discovery. The work follows a comprehensive pipeline from clinical data processing to therapeutic design:
-
-<div class="research-pipeline">
-  <div class="pipeline-step">
-    <div class="step-icon">🏥</div>
-    <div class="step-content">
-      <h4>Clinical Data Processing</h4>
-      <p>Multimodal clinical information analysis</p>
-    </div>
-  </div>
-  
-  <div class="pipeline-arrow">→</div>
-  
-  <div class="pipeline-step">
-    <div class="step-icon">🔍</div>
-    <div class="step-content">
-      <h4>Disease Mechanism Discovery</h4>
-      <p>AI-driven biomarker identification</p>
-    </div>
-  </div>
-  
-  <div class="pipeline-arrow">→</div>
-  
-  <div class="pipeline-step">
-    <div class="step-icon">🧬</div>
-    <div class="step-content">
-      <h4>Therapeutic Design</h4>
-      <p>Targeted drug development & optimization</p>
-    </div>
-  </div>
-</div>
-
----
-
-## 📚 Publications
+**Total Publications**: <span id="total-count">Loading...</span> published papers
 
 <div id="publications-loading" style="text-align: center; padding: 2em;">
   <p>Loading publications...</p>
@@ -54,50 +18,7 @@ My research focuses on developing next-generation computational tools for medica
 
 <div id="publications-container"></div>
 
-### Key Research Areas
-
-<div class="research-areas">
-  <div class="research-area">
-    <h4>🧠 Large Language Models for Drug Discovery</h4>
-    <p>Applying LLMs to accelerate pharmaceutical research and development processes</p>
-  </div>
-  
-  <div class="research-area">
-    <h4>🔬 Protein Representation Learning</h4>
-    <p>Advanced neural architectures for protein structure and function prediction</p>
-  </div>
-  
-  <div class="research-area">
-    <h4>💊 Molecular Generation & Optimization</h4>
-    <p>AI-driven design of novel therapeutic compounds with desired properties</p>
-  </div>
-  
-  <div class="research-area">
-    <h4>🎯 Drug-Target Interaction Prediction</h4>
-    <p>Computational methods for predicting and optimizing drug-protein interactions</p>
-  </div>
-</div>
-
 ---
-
-## 📚 Complete Publication List
-
-**Total Publications**: <span id="total-count">Loading...</span> published papers
-
-<div class="scholar-stats">
-  <div class="stat-item">
-    <div class="stat-number">2600+</div>
-    <div class="stat-label">Citations</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number" id="paper-count">Loading...</div>
-    <div class="stat-label">Papers</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-number">High</div>
-    <div class="stat-label">Impact</div>
-  </div>
-</div>
 
 For a complete and up-to-date list including preprints, please visit my [**Google Scholar profile**](https://scholar.google.com/citations?hl=zh-CN&user=AUpqepUAAAAJ&view_op=list_works&sortby=pubdate).
 
@@ -253,7 +174,6 @@ function renderPublications() {
       
       // Update counts
       document.getElementById('total-count').textContent = publishedEntries.length;
-      document.getElementById('paper-count').textContent = publishedEntries.length;
     })
     .catch(error => {
       console.error('Error loading BibTeX file:', error);
