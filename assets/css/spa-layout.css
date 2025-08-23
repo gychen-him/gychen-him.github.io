@@ -11,14 +11,17 @@
 }
 
 .spa-sidebar {
-  flex: 0 0 320px;
-  min-width: 320px;
+  flex: 0 0 300px;
+  min-width: 300px;
   position: sticky;
-  top: 1em;
-  max-height: calc(100vh - 2em);
+  top: 80px;
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
-  padding: 1.5em;
+  padding: 2em 1em;
   box-sizing: border-box;
+  background: #fafbfc;
+  border-radius: 8px;
+  margin-top: 1em;
 }
 
 .spa-content {
@@ -56,14 +59,17 @@
 .spa-sidebar .profile_box {
   text-align: center !important;
   width: 100% !important;
-  display: block !important;
+  display: flex !important;
   flex-direction: column !important;
+  align-items: center !important;
+  gap: 1em !important;
+  padding: 1em 0 !important;
 }
 
 .spa-sidebar .author__avatar {
-  margin: 0 auto 1.5em auto !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
   text-align: center !important;
-  width: 100% !important;
 }
 
 .spa-sidebar .author__avatar img {
@@ -75,9 +81,10 @@
 
 .spa-sidebar .author__content {
   text-align: center !important;
-  margin-bottom: 1.5em !important;
+  margin: 0 !important;
   width: 100% !important;
   padding: 0 !important;
+  flex-shrink: 0 !important;
 }
 
 .spa-sidebar .author__name {
@@ -152,75 +159,59 @@
   hyphens: auto !important;
 }
 
-/* Navigation Base Styles */
+/* Navigation Base Styles - Clean Header Design */
 .masthead {
-  display: block !important;
-  position: relative !important;
+  background: white !important;
+  border-bottom: 1px solid #e9ecef !important;
+  padding: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
   z-index: 1000 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
   width: 100% !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-.greedy-nav button,
-.greedy-nav .hidden-links {
-  display: none !important;
 }
 
 .masthead__inner-wrap {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2em !important;
   display: flex !important;
-  justify-content: flex-start !important;
   align-items: center !important;
-  text-align: left !important;
-  width: 100% !important;
+  height: 60px !important;
+  position: relative !important;
 }
 
 .masthead__menu {
-  width: 100% !important;
-  max-width: 100% !important;
-  float: none !important;
-  text-align: left !important;
-  display: block !important;
-  visibility: visible !important;
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
 }
 
 .greedy-nav {
   width: 100% !important;
-  float: none !important;
-  text-align: left !important;
-  display: block !important;
-  visibility: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
 }
 
 .greedy-nav .visible-links {
-  width: 100% !important;
-  max-width: none !important;
   display: flex !important;
-  justify-content: flex-start !important;
   align-items: center !important;
+  gap: 0.5em !important;
   margin: 0 !important;
   padding: 0 !important;
-  gap: 1em !important;
   flex-wrap: nowrap !important;
   overflow: visible !important;
-  visibility: visible !important;
 }
 
-/* Force all navigation items to show - no hiding */
+/* Navigation item styling */
 .greedy-nav .visible-links li {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
   position: relative !important;
-  overflow: visible !important;
-}
-
-/* Ensure no navigation items are clipped or hidden */
-.masthead__menu,
-.greedy-nav,
-.greedy-nav .visible-links {
-  min-width: 100% !important;
-  white-space: nowrap !important;
 }
 
 /* Enable greedy navigation with proper dropdown styling */
@@ -247,14 +238,19 @@
 
 .greedy-nav button,
 .greedy-nav .greedy-nav__toggle {
-  background: transparent;
-  border: none;
-  padding: 0.5em;
-  cursor: pointer;
-  font-size: 1em;
-  color: #333;
-  display: none;
-  position: relative;
+  background: transparent !important;
+  border: none !important;
+  padding: 0.5em !important;
+  cursor: pointer !important;
+  font-size: 1em !important;
+  color: #333 !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.greedy-nav button.hidden,
+.greedy-nav .greedy-nav__toggle.hidden {
+  display: none !important;
 }
 
 .greedy-nav button:not(.hidden),
@@ -431,31 +427,41 @@
 
 /* Mobile and small tablet screens */
 @media (max-width: 768px) {
-  /* Navigation for mobile */
+  /* Navigation for mobile - Clean header */
   .masthead {
-    padding: 0.5em 0 !important;
-    background-color: #fff !important;
+    position: sticky !important;
+    top: 0 !important;
+    background: white !important;
     border-bottom: 1px solid #e9ecef !important;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    z-index: 1000 !important;
   }
   
   .masthead__inner-wrap {
     padding: 0 1em !important;
+    height: 60px !important;
+    max-width: 100% !important;
+  }
+  
+  .greedy-nav {
+    justify-content: flex-start !important;
   }
   
   .greedy-nav .visible-links {
-    flex-wrap: wrap !important;
-    gap: 0.5em !important;
-    justify-content: center !important;
+    gap: 0.3em !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
   }
   
   .masthead__menu-item a {
-    padding: 0.4em 0.8em !important;
-    font-size: 0.9em !important;
+    padding: 0.4em 0.6em !important;
+    font-size: 0.85em !important;
     border-radius: 4px !important;
     background-color: #f8f9fa !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
     text-decoration: none !important;
-    color: #495057 !important;
   }
   
   .masthead__menu-item a:hover,
