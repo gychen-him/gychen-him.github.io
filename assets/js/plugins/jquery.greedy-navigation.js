@@ -75,5 +75,9 @@ $(window).resize(function() {
   updateNav();
 });
 
-// Initialize navigation
-updateNav();
+// Initialize navigation when DOM is ready
+$(document).ready(function() {
+  console.log('Greedy navigation initializing...');
+  console.log('Nav elements found:', $nav.length, $btn.length, $vlinks.length, $hlinks.length);
+  updateNav();
+});
