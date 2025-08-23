@@ -52,9 +52,9 @@
   flex-direction: column !important;
   align-items: center !important;
   gap: 1.5em !important;
-  padding: 0 0 2em 0 !important;
-  margin: 0 !important;
-  border-bottom: 1px solid #e0e0e0 !important;
+  padding: 0 0 2.5em 0 !important;
+  margin: 0 0 2.5em 0 !important;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.3) !important;
 }
 
 /* Author Info */
