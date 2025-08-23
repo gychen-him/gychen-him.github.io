@@ -165,6 +165,32 @@
   display: none !important;
 }
 
+/* Override original theme's sidebar behavior */
+.spa-sidebar .sidebar.sticky {
+  position: static !important;
+  top: auto !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
+/* Force sidebar content to always show */
+.spa-sidebar .author__urls {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Disable Stickyfill behavior for our sidebar */
+.spa-sidebar .sidebar {
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
 /* Override any theme flexbox issues */
 .spa-sidebar * {
   box-sizing: border-box !important;
@@ -579,6 +605,22 @@
   .spa-sidebar .author__urls a img {
     width: 14px !important;
     height: 14px !important;
+  }
+  
+  /* Force content to show on mobile */
+  .spa-sidebar .author__urls {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  .spa-sidebar .sidebar {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
 }
 
