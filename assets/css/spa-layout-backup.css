@@ -1,0 +1,993 @@
+/* SPA Layout Styles - Clean and Simple */
+
+.spa-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1em;
+  gap: 2em;
+  min-height: calc(100vh - 80px);
+  align-items: flex-start;
+}
+
+.spa-sidebar {
+  flex: 0 0 300px;
+  min-width: 300px;
+  position: static;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  background: #fafbfc;
+  border-radius: 8px;
+  margin-top: 1em;
+}
+
+.spa-content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+/* Ensure content matches the original theme styling */
+.spa-content .page {
+  margin: 0;
+  padding: 0;
+}
+
+.spa-content .page__inner-wrap {
+  margin: 0;
+  padding: 0;
+}
+
+.spa-content .page__content {
+  margin: 0;
+  padding: 0 0.5em 0 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Sidebar content styling - Default (Desktop) */
+.spa-sidebar .sidebar {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1em !important;
+}
+
+.spa-sidebar .profile_box {
+  text-align: center !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.5em !important;
+  padding: 0 0 2em 0 !important;
+  margin-bottom: 3em !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.spa-sidebar .author__avatar {
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+  text-align: center !important;
+}
+
+.spa-sidebar .author__avatar img {
+  display: block !important;
+  margin: 0 auto !important;
+  max-width: 160px !important;
+  width: 85% !important;
+}
+
+.spa-sidebar .author__content {
+  text-align: center !important;
+  margin: 0 !important;
+  width: 100% !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.spa-sidebar .author__name {
+  text-align: center !important;
+  margin: 0.8em 0 !important;
+  font-size: 1.1em !important;
+  line-height: 1.3 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+.spa-sidebar .author__bio {
+  text-align: center !important;
+  margin: 0.8em 0 1.5em 0 !important;
+  font-size: 0.95em !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+.spa-sidebar .author__urls-wrapper {
+  width: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.spa-sidebar .author__urls {
+  text-align: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.spa-sidebar .author__urls li {
+  margin-bottom: 0.8em !important;
+  font-size: 0.9em !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  display: block !important;
+}
+
+.spa-sidebar .author__urls a {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.3em 0 !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  font-size: 0.85em !important;
+  gap: 0.5em !important;
+  color: #333 !important;
+  text-decoration: none !important;
+}
+
+/* Control icon sizes in sidebar */
+.spa-sidebar .author__urls a i,
+.spa-sidebar .author__urls a .fa,
+.spa-sidebar .author__urls a svg {
+  width: 16px !important;
+  height: 16px !important;
+  font-size: 14px !important;
+  flex-shrink: 0 !important;
+}
+
+.spa-sidebar .author__urls a img {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+}
+
+/* Hide the duplicate icons-only section */
+.spa-sidebar .author__urls_sm {
+  display: none !important;
+}
+
+/* Override original theme's sidebar behavior */
+.spa-sidebar .sidebar.sticky {
+  position: static !important;
+  top: auto !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+
+/* Force sidebar content to always show */
+.spa-sidebar .author__urls {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Disable Stickyfill behavior for our sidebar */
+.spa-sidebar .sidebar {
+  position: static !important;
+  top: auto !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
+/* Ensure clear separation between profile and other content */
+.spa-sidebar .profile_box ~ * {
+  margin-top: 2em !important;
+}
+
+/* Specific spacing for content sections */
+.spa-sidebar .profile_box + h1,
+.spa-sidebar .profile_box + h2,
+.spa-sidebar .profile_box + h3,
+.spa-sidebar .profile_box + .page__content,
+.spa-sidebar .profile_box + div {
+  margin-top: 3em !important;
+  padding-top: 1em !important;
+}
+
+/* Override any theme flexbox issues */
+.spa-sidebar * {
+  box-sizing: border-box !important;
+}
+
+.spa-sidebar .profile_box,
+.spa-sidebar .author__content,
+.spa-sidebar .author__urls-wrapper {
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+}
+
+/* Ensure text doesn't get squeezed */
+.spa-sidebar p,
+.spa-sidebar div,
+.spa-sidebar li,
+.spa-sidebar a {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+}
+
+/* Navigation Base Styles - Clean Header Design */
+.masthead {
+  background: white !important;
+  border-bottom: 1px solid #e9ecef !important;
+  padding: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+  width: 100% !important;
+}
+
+.masthead__inner-wrap {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2em !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 60px !important;
+  position: relative !important;
+}
+
+.masthead__menu {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+.greedy-nav {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  position: relative !important;
+}
+
+.greedy-nav .visible-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-wrap: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Navigation item styling */
+.greedy-nav .visible-links li {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+}
+
+/* Enable greedy navigation with proper dropdown styling */
+.greedy-nav .hidden-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.greedy-nav .hidden-links.hidden {
+  display: none !important;
+}
+
+.greedy-nav .hidden-links:not(.hidden) {
+  display: block !important;
+}
+
+.greedy-nav button,
+.greedy-nav .greedy-nav__toggle {
+  background: transparent !important;
+  border: none !important;
+  padding: 0.5em !important;
+  cursor: pointer !important;
+  font-size: 1em !important;
+  color: #333 !important;
+  margin-left: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.greedy-nav button.hidden,
+.greedy-nav .greedy-nav__toggle.hidden {
+  display: none !important;
+}
+
+.greedy-nav button:not(.hidden),
+.greedy-nav .greedy-nav__toggle:not(.hidden) {
+  display: inline-block !important;
+}
+
+.greedy-nav button::after,
+.greedy-nav .greedy-nav__toggle::after {
+  content: "☰";
+  font-size: 1.2em;
+}
+
+.greedy-nav button:hover {
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+}
+
+/* Style hidden navigation links */
+.greedy-nav .hidden-links li {
+  display: block !important;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.greedy-nav .hidden-links li:last-child {
+  border-bottom: none;
+}
+
+.greedy-nav .hidden-links a {
+  display: block !important;
+  padding: 0.75em 1em;
+  color: #333;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.greedy-nav .hidden-links a:hover {
+  background: #f5f5f5;
+  color: #2c5aa0;
+}
+
+.masthead__menu-item {
+  display: block !important;
+  float: none !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+.masthead__menu-item a {
+  padding: 0.5em 1em !important;
+  display: block !important;
+  text-decoration: none !important;
+  border-radius: 4px !important;
+  transition: background-color 0.3s ease !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.masthead__menu-item a:hover {
+  background-color: #f8f9fa !important;
+}
+
+.masthead__menu ul {
+  text-align: left !important;
+  justify-content: flex-start !important;
+  width: auto !important;
+  display: flex !important;
+}
+
+.greedy-nav a.current {
+  color: #52adc8 !important;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+
+/* Large screens */
+@media (min-width: 1600px) {
+  .spa-container {
+    max-width: 1600px;
+    padding: 0 2em;
+    gap: 2.5em;
+  }
+  
+  .spa-sidebar {
+    flex: 0 0 350px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 1024px) and (max-width: 1599px) {
+  .spa-container {
+    max-width: 1300px;
+    padding: 0 1.5em;
+    gap: 1.8em;
+  }
+  
+  .spa-sidebar {
+    flex: 0 0 300px;
+  }
+}
+
+/* Small laptop screens */
+@media (min-width: 900px) and (max-width: 1023px) {
+  .spa-container {
+    padding: 0 1em;
+    gap: 1.2em;
+  }
+  
+  .spa-sidebar {
+    flex: 0 0 280px;
+    padding: 1.2em;
+  }
+  
+  .spa-sidebar .author__avatar img {
+    max-width: 140px !important;
+    width: 80% !important;
+  }
+  
+  .spa-sidebar .author__name {
+    font-size: 1.05em !important;
+  }
+  
+  .spa-sidebar .author__bio {
+    font-size: 0.9em !important;
+  }
+}
+
+/* Tablet screens */
+@media (min-width: 769px) and (max-width: 899px) {
+  .spa-container {
+    padding: 0 0.8em;
+    gap: 1em;
+  }
+  
+  .spa-sidebar {
+    flex: 0 0 240px;
+    padding: 1em;
+  }
+  
+  .spa-sidebar .author__avatar {
+    margin: 0 auto 1em auto !important;
+  }
+  
+  .spa-sidebar .author__avatar img {
+    max-width: 120px !important;
+    width: 75% !important;
+  }
+  
+  .spa-sidebar .author__name {
+    font-size: 1em !important;
+    margin: 0.6em 0 !important;
+  }
+  
+  .spa-sidebar .author__bio {
+    font-size: 0.85em !important;
+    margin: 0.6em 0 1.2em 0 !important;
+  }
+  
+  .spa-sidebar .author__content {
+    margin-bottom: 1.2em !important;
+  }
+  
+  .spa-sidebar .author__urls li {
+    margin-bottom: 0.6em !important;
+    font-size: 0.85em !important;
+  }
+}
+
+/* Mobile and small tablet screens */
+@media (max-width: 768px) {
+  /* Navigation for mobile - Clean header */
+  .masthead {
+    position: sticky !important;
+    top: 0 !important;
+    background: white !important;
+    border-bottom: 1px solid #e9ecef !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+    z-index: 1000 !important;
+  }
+  
+  .masthead__inner-wrap {
+    padding: 0 1em !important;
+    height: 60px !important;
+    max-width: 100% !important;
+  }
+  
+  .greedy-nav {
+    justify-content: flex-start !important;
+  }
+  
+  .greedy-nav .visible-links {
+    gap: 0.3em !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
+  
+  .masthead__menu-item a {
+    padding: 0.4em 0.6em !important;
+    font-size: 0.85em !important;
+    border-radius: 4px !important;
+    background-color: #f8f9fa !important;
+    color: #333 !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+  
+  .masthead__menu-item a:hover,
+  .masthead__menu-item a.current {
+    background-color: #52adc8 !important;
+    color: white !important;
+  }
+  
+  /* Layout for mobile */
+  .spa-container {
+    flex-direction: column;
+    padding: 0 1em;
+    gap: 1em;
+    min-height: auto;
+  }
+  
+  .spa-sidebar {
+    flex: none;
+    position: relative;
+    width: 100%;
+    max-height: none;
+    order: 1;
+    padding: 1em;
+  }
+  
+  .spa-sidebar .profile_box {
+    margin-bottom: 2em !important;
+    gap: 1em !important;
+    padding: 0 0 1.5em 0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+  
+  .spa-content {
+    flex: none;
+    width: 100%;
+    order: 2;
+  }
+  
+  /* Mobile sidebar styling */
+  .spa-sidebar .author__avatar {
+    margin: 0 auto 0.8em auto !important;
+  }
+  
+  .spa-sidebar .author__avatar img {
+    max-width: 100px !important;
+    width: 100px !important;
+  }
+  
+  .spa-sidebar .author__name {
+    font-size: 1.1em !important;
+    margin: 0 0 0.4em 0 !important;
+  }
+  
+  .spa-sidebar .author__bio {
+    font-size: 0.85em !important;
+    margin: 0 0 0.6em 0 !important;
+    line-height: 1.3 !important;
+  }
+  
+  .spa-sidebar .author__content {
+    margin-bottom: 1em !important;
+  }
+  
+  .spa-sidebar .author__urls-wrapper {
+    margin-top: 0.5em;
+    text-align: center !important;
+  }
+  
+  .spa-sidebar .author__urls {
+    text-align: center !important;
+  }
+  
+  .spa-sidebar .author__urls li {
+    font-size: 0.8em !important;
+    margin-bottom: 0.3em !important;
+    text-align: center !important;
+  }
+  
+  .spa-sidebar .author__urls a i,
+  .spa-sidebar .author__urls a .fa,
+  .spa-sidebar .author__urls a svg {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 12px !important;
+  }
+  
+  .spa-sidebar .author__urls a img {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  
+  /* Force content to show on mobile */
+  .spa-sidebar .author__urls {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  
+  .spa-sidebar .sidebar {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+@media (max-width: 599px) {
+  .spa-sidebar {
+    padding: 0.8em;
+  }
+  
+  .spa-sidebar .author__avatar img {
+    max-width: 80px !important;
+    width: 80px !important;
+  }
+  
+  .spa-sidebar .author__name {
+    font-size: 1em !important;
+  }
+  
+  .spa-sidebar .author__bio {
+    font-size: 0.8em !important;
+  }
+  
+  .spa-sidebar .author__urls li {
+    font-size: 0.75em !important;
+  }
+}
+
+/* Smooth transitions for SPA navigation */
+.spa-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.spa-content.loading {
+  opacity: 0.7;
+  transform: translateY(10px);
+}
+
+.spa-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #52adc8, #7bc7d8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.spa-content.loading::before {
+  transform: scaleX(1);
+}
+
+/* Publications page specific styling */
+.paper-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
+}
+
+.paper-item:last-child {
+  border-bottom: none;
+}
+
+.paper-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5em;
+  line-height: 1.4;
+}
+
+.paper-authors {
+  color: #666;
+  margin-bottom: 0.3em;
+  font-size: 0.95em;
+}
+
+.paper-venue {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
+
+.paper-links {
+  margin-top: 0.5em;
+}
+
+.paper-links a {
+  color: #52adc8;
+  text-decoration: none;
+  margin-right: 1em;
+  font-size: 0.9em;
+}
+
+.paper-links a:hover {
+  text-decoration: underline;
+}
+
+.paper-stats {
+  margin: 0.5em 0;
+}
+
+.citation-count {
+  color: #666;
+  font-size: 0.85em;
+  background: #f5f5f5;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Publications by Year */
+.year-section {
+  margin: 2em 0;
+}
+
+.year-header {
+  color: #2c5aa0;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #52adc8;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.year-count {
+  font-size: 0.7em;
+  color: #6c757d;
+  font-weight: normal;
+}
+
+.year-papers {
+  display: grid;
+  gap: 1.2em;
+}
+
+.publication-item {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1.2em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+}
+
+.publication-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.paper-number {
+  background: linear-gradient(135deg, #52adc8, #7bc7d8);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85em;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+}
+
+.paper-content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding-right: 2em;
+  padding-bottom: 0.5em;
+  z-index: 2;
+}
+
+.publication-item .paper-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #2c5aa0;
+  margin-bottom: 0.4em;
+  line-height: 1.3;
+}
+
+.publication-item .paper-authors {
+  color: #495057;
+  margin-bottom: 0.8em;
+  font-size: 0.9em;
+}
+
+.citation-authors {
+  margin-bottom: 0.4em;
+  line-height: 1.4;
+}
+
+.citation-title {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: #2c5aa0;
+  margin-bottom: 0.3em;
+  line-height: 1.3;
+}
+
+.citation-venue {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.citation-venue em {
+  font-style: italic;
+}
+
+.citation-venue strong {
+  font-weight: 600;
+}
+
+.chicago-citation {
+  color: #333;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 0.8em;
+  text-align: justify;
+}
+
+.chicago-citation em {
+  font-style: italic;
+}
+
+.chicago-citation strong {
+  font-weight: 600;
+  color: #2c5aa0;
+}
+
+/* Author markers styling */
+.author-marker {
+  font-size: 0.8em;
+  margin-left: 0.2em;
+  font-weight: 600;
+}
+
+.author-marker.cofirst {
+  color: #d73027;
+}
+
+.author-marker.corresponding {
+  color: #2166ac;
+}
+
+.author-legend {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0.3em;
+  font-style: italic;
+}
+
+.author-legend .author-marker {
+  margin-right: 0.3em;
+}
+
+.publication-item .paper-links {
+  margin-top: 0.5em;
+}
+
+.publication-item .paper-links a {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #52adc8;
+  text-decoration: none;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  margin-right: 0.4em;
+  margin-bottom: 0.3em;
+  font-size: 0.8em;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.publication-item .paper-links a:hover {
+  background: #52adc8;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Research category watermarks - elegant transparent background text */
+.category-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.category-badge.ai-category {
+  color: rgba(102, 126, 234, 0.15);
+  text-shadow: 0 0 1px rgba(102, 126, 234, 0.1);
+}
+
+.category-badge.science-category {
+  color: rgba(240, 147, 251, 0.15);
+  text-shadow: 0 0 1px rgba(240, 147, 251, 0.1);
+}
+
+.publication-item:hover .category-badge.ai-category {
+  color: rgba(102, 126, 234, 0.25);
+  text-shadow: 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.publication-item:hover .category-badge.science-category {
+  color: rgba(240, 147, 251, 0.25);
+  text-shadow: 0 0 2px rgba(240, 147, 251, 0.2);
+}
+
+/* Responsive Design for Publications Page */
+@media (max-width: 768px) {
+  .year-header {
+    font-size: 1.2em;
+  }
+  
+  .publication-item {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+  
+  .paper-number {
+    align-self: flex-start;
+    margin-top: 0;
+  }
+  
+  .paper-content {
+    padding-right: 1em;
+  }
+  
+  .category-badge {
+    font-size: 1em;
+    right: 10px;
+    bottom: 8px;
+  }
+}
