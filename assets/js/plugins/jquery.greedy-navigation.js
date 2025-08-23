@@ -58,15 +58,22 @@ function updateNav() {
 
 }
 
-// Window listeners
+// Add toggle functionality for dropdown menu
+$btn.on('click', function() {
+  $hlinks.toggleClass('hidden');
+});
 
+// Close dropdown when clicking outside
+$(document).on('click', function(e) {
+  if (!$(e.target).closest('.greedy-nav').length) {
+    $hlinks.addClass('hidden');
+  }
+});
+
+// Window listeners
 $(window).resize(function() {
   updateNav();
 });
 
-$btn.on('click', function() {
-  $hlinks.toggleClass('hidden');
-  $(this).toggleClass('close');
-});
-
+// Initialize navigation
 updateNav();

@@ -193,7 +193,8 @@
 }
 
 .greedy-nav .visible-links {
-  width: auto !important;
+  width: 100% !important;
+  max-width: none !important;
   display: flex !important;
   justify-content: flex-start !important;
   align-items: center !important;
@@ -203,6 +204,98 @@
   flex-wrap: nowrap !important;
   overflow: visible !important;
   visibility: visible !important;
+}
+
+/* Force all navigation items to show - no hiding */
+.greedy-nav .visible-links li {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Ensure no navigation items are clipped or hidden */
+.masthead__menu,
+.greedy-nav,
+.greedy-nav .visible-links {
+  min-width: 100% !important;
+  white-space: nowrap !important;
+}
+
+/* Enable greedy navigation with proper dropdown styling */
+.greedy-nav .hidden-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.greedy-nav .hidden-links.hidden {
+  display: none !important;
+}
+
+.greedy-nav .hidden-links:not(.hidden) {
+  display: block !important;
+}
+
+.greedy-nav button,
+.greedy-nav .greedy-nav__toggle {
+  background: transparent;
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
+  font-size: 1em;
+  color: #333;
+  display: none;
+  position: relative;
+}
+
+.greedy-nav button:not(.hidden),
+.greedy-nav .greedy-nav__toggle:not(.hidden) {
+  display: inline-block !important;
+}
+
+.greedy-nav button::after,
+.greedy-nav .greedy-nav__toggle::after {
+  content: "☰";
+  font-size: 1.2em;
+}
+
+.greedy-nav button:hover {
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+}
+
+/* Style hidden navigation links */
+.greedy-nav .hidden-links li {
+  display: block !important;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.greedy-nav .hidden-links li:last-child {
+  border-bottom: none;
+}
+
+.greedy-nav .hidden-links a {
+  display: block !important;
+  padding: 0.75em 1em;
+  color: #333;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.greedy-nav .hidden-links a:hover {
+  background: #f5f5f5;
+  color: #2c5aa0;
 }
 
 .masthead__menu-item {
