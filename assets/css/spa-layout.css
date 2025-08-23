@@ -63,8 +63,9 @@
   flex-direction: column !important;
   align-items: center !important;
   gap: 1.5em !important;
-  padding: 0 !important;
-  margin-bottom: 2em !important;
+  padding: 0 0 2em 0 !important;
+  margin-bottom: 3em !important;
+  border-bottom: 1px solid #e0e0e0 !important;
 }
 
 .spa-sidebar .author__avatar {
@@ -114,7 +115,7 @@
 }
 
 .spa-sidebar .author__urls {
-  text-align: left !important;
+  text-align: center !important;
   padding: 0 !important;
   margin: 0 !important;
   line-height: 1.6 !important;
@@ -189,6 +190,21 @@
   top: auto !important;
   transform: none !important;
   -webkit-transform: none !important;
+}
+
+/* Ensure clear separation between profile and other content */
+.spa-sidebar .profile_box ~ * {
+  margin-top: 2em !important;
+}
+
+/* Specific spacing for content sections */
+.spa-sidebar .profile_box + h1,
+.spa-sidebar .profile_box + h2,
+.spa-sidebar .profile_box + h3,
+.spa-sidebar .profile_box + .page__content,
+.spa-sidebar .profile_box + div {
+  margin-top: 3em !important;
+  padding-top: 1em !important;
 }
 
 /* Override any theme flexbox issues */
@@ -544,8 +560,10 @@
   }
   
   .spa-sidebar .profile_box {
-    margin-bottom: 1.5em !important;
+    margin-bottom: 2em !important;
     gap: 1em !important;
+    padding: 0 0 1.5em 0 !important;
+    border-bottom: 1px solid #e0e0e0 !important;
   }
   
   .spa-content {
