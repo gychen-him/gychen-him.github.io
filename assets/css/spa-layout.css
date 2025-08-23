@@ -419,6 +419,31 @@
     width: 14px !important;
     height: 14px !important;
   }
+  
+  /* Publications responsive design */
+  .year-header {
+    font-size: 1.2em;
+  }
+  
+  .publication-item {
+    flex-direction: column;
+    gap: 0.8em;
+  }
+  
+  .paper-number {
+    align-self: flex-start;
+    margin-top: 0;
+  }
+  
+  .paper-content {
+    padding-right: 1em;
+  }
+  
+  .category-badge {
+    font-size: 1em;
+    right: 10px;
+    bottom: 8px;
+  }
 }
 
 /* Very small screens */
@@ -446,6 +471,220 @@
 }
 
 /* === PUBLICATIONS PAGE === */
+
+/* Publications by Year */
+.year-section {
+  margin: 2em 0;
+}
+
+.year-header {
+  color: #2c5aa0;
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #52adc8;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.year-count {
+  font-size: 0.7em;
+  color: #6c757d;
+  font-weight: normal;
+}
+
+.year-papers {
+  display: grid;
+  gap: 1.2em;
+}
+
+.publication-item {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1.2em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+}
+
+.publication-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.paper-number {
+  background: linear-gradient(135deg, #52adc8, #7bc7d8);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.85em;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+}
+
+.paper-content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding-right: 2em;
+  padding-bottom: 0.5em;
+  z-index: 2;
+}
+
+.publication-item .paper-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #2c5aa0;
+  margin-bottom: 0.4em;
+  line-height: 1.3;
+}
+
+.publication-item .paper-authors {
+  color: #495057;
+  margin-bottom: 0.8em;
+  font-size: 0.9em;
+}
+
+.citation-authors {
+  margin-bottom: 0.4em;
+  line-height: 1.4;
+}
+
+.citation-title {
+  font-size: 1.05em;
+  font-weight: 600;
+  color: #2c5aa0;
+  margin-bottom: 0.3em;
+  line-height: 1.3;
+}
+
+.citation-venue {
+  color: #666;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.citation-venue em {
+  font-style: italic;
+}
+
+.citation-venue strong {
+  font-weight: 600;
+}
+
+.chicago-citation {
+  color: #333;
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin-bottom: 0.8em;
+  text-align: justify;
+}
+
+.chicago-citation em {
+  font-style: italic;
+}
+
+.chicago-citation strong {
+  font-weight: 600;
+  color: #2c5aa0;
+}
+
+/* Author markers styling */
+.author-marker {
+  font-size: 0.8em;
+  margin-left: 0.2em;
+  font-weight: 600;
+}
+
+.author-marker.cofirst {
+  color: #d73027;
+}
+
+.author-marker.corresponding {
+  color: #2166ac;
+}
+
+.author-legend {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 0.3em;
+  font-style: italic;
+}
+
+.author-legend .author-marker {
+  margin-right: 0.3em;
+}
+
+.publication-item .paper-links {
+  margin-top: 0.5em;
+}
+
+.publication-item .paper-links a {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #52adc8;
+  text-decoration: none;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  margin-right: 0.4em;
+  margin-bottom: 0.3em;
+  font-size: 0.8em;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.publication-item .paper-links a:hover {
+  background: #52adc8;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Research category watermarks - elegant transparent background text */
+.category-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 15px;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.category-badge.ai-category {
+  color: rgba(102, 126, 234, 0.15);
+  text-shadow: 0 0 1px rgba(102, 126, 234, 0.1);
+}
+
+.category-badge.science-category {
+  color: rgba(240, 147, 251, 0.15);
+  text-shadow: 0 0 1px rgba(240, 147, 251, 0.1);
+}
+
+.publication-item:hover .category-badge.ai-category {
+  color: rgba(102, 126, 234, 0.25);
+  text-shadow: 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.publication-item:hover .category-badge.science-category {
+  color: rgba(240, 147, 251, 0.25);
+  text-shadow: 0 0 2px rgba(240, 147, 251, 0.2);
+}
+
+/* Legacy paper item support */
 .paper-item {
   margin-bottom: 1.5em;
   padding-bottom: 1em;
