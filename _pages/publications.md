@@ -393,6 +393,12 @@ function renderPublications() {
     });
 }
 
-// Load publications when page loads
-document.addEventListener('DOMContentLoaded', renderPublications);
+// Load publications when page loads or when script is executed
+if (document.readyState === 'loading') {
+  // DOM is still loading, wait for DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', renderPublications);
+} else {
+  // DOM is already loaded (e.g., SPA navigation), call immediately
+  renderPublications();
+}
 </script>

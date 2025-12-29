@@ -163,23 +163,22 @@ class SPANavigation {
       window.initializeGoogleScholarStats();
     }
     
+    // Execute page-specific scripts first (this will define renderPublications)
+    this.executePageScripts();
+    
     // Check if we're on publications page and call renderPublications directly
     if (this.currentPath === '/publications/' || this.currentPath === '/publications') {
       console.log('Loading publications page via SPA');
-      // Small delay to ensure DOM is ready
+      // Small delay to ensure scripts are executed and DOM is ready
       setTimeout(() => {
         if (typeof renderPublications === 'function') {
           console.log('Calling renderPublications function');
           renderPublications();
         } else {
-          console.log('renderPublications function not found, executing scripts');
-          this.executePageScripts();
+          console.error('renderPublications function not found after script execution');
         }
-      }, 100);
+      }, 200);
     }
-    
-    // Execute other page-specific scripts
-    this.executePageScripts();
   }
   
   executePageScripts() {
