@@ -4,11 +4,35 @@
 
 ## ⚠️ 重要说明
 
-由于Google Scholar有反爬虫机制，自动抓取可能不够稳定。我们提供了两种方法：
+由于Google Scholar有反爬虫机制，自动抓取可能不够稳定。我们提供了三种方法：
 
-### 方法1: 使用scholarly库（推荐尝试）
+### 方法1: 使用Google账号登录（最稳定，推荐）✨
 
-这是最简单的方法，但可能因为Google Scholar的反爬虫机制而不够稳定。
+使用您的Google账号密码登录，可以绕过大部分反爬虫限制，这是最稳定的方法。
+
+**设置步骤：**
+
+1. **配置GitHub Secrets**：
+   - 在GitHub仓库的 `Settings -> Secrets -> Actions` 中
+   - 添加以下三个secrets：
+     - `GOOGLE_SCHOLAR_ID`: 您的Google Scholar ID（例如：`AUpqepUAAAAJ`）
+     - `GOOGLE_EMAIL`: 您的Google账号邮箱
+     - `GOOGLE_PASSWORD`: 您的Google账号密码（或应用专用密码）
+
+2. **关于应用专用密码**：
+   - 如果启用了2FA（双因素认证），需要使用**应用专用密码**
+   - 访问：https://myaccount.google.com/apppasswords
+   - 生成一个应用专用密码用于此脚本
+   - 将应用专用密码设置为 `GOOGLE_PASSWORD` secret
+
+3. **启用GitHub Actions**：
+   - 在GitHub仓库的 `Actions` 标签页中
+   - 点击 "I understand my workflows, go ahead and enable them"
+   - 工作流会自动运行
+
+### 方法2: 使用scholarly库（备选方案）
+
+这是不需要登录的方法，但可能因为Google Scholar的反爬虫机制而不够稳定。
 
 **设置步骤：**
 
@@ -27,7 +51,7 @@
    - **手动触发**：在Actions页面点击 "Update BibTeX from Google Scholar" -> "Run workflow"
    - **代码更新触发**：当相关脚本文件更新时自动运行
 
-### 方法2: 手动导出后处理（最稳定）
+### 方法3: 手动导出后处理（备选方案）
 
 如果自动抓取不稳定，您可以：
 
@@ -55,6 +79,27 @@
 
 如果想在本地测试脚本：
 
+**使用认证方法（推荐）：**
+```bash
+# 安装依赖
+pip install -r scripts/requirements.txt
+pip install selenium
+
+# 安装ChromeDriver
+# macOS: brew install chromedriver
+# Linux: sudo apt-get install chromium-chromedriver
+# Windows: 下载并添加到PATH
+
+# 设置环境变量并运行
+export GOOGLE_SCHOLAR_ID="AUpqepUAAAAJ"
+export GOOGLE_EMAIL="your-email@gmail.com"
+export GOOGLE_PASSWORD="your-password-or-app-password"
+export BIB_OUTPUT_FILE="pub.bib"
+export HEADLESS="false"  # 设置为false可以看到浏览器操作过程
+python scripts/fetch_google_scholar_bib_auth.py
+```
+
+**使用非认证方法：**
 ```bash
 # 安装依赖
 pip install -r scripts/requirements.txt
@@ -85,17 +130,42 @@ python scripts/fetch_google_scholar_bib.py
    - 查找错误信息
 
 2. **常见问题**：
+
+   **认证相关问题：**
+   - **"Login failed"**: 
+     - 检查邮箱和密码是否正确
+     - 如果启用了2FA，必须使用应用专用密码
+     - 检查账号是否被锁定或需要验证
+   - **"Timeout during login"**: 
+     - Google可能需要额外的验证步骤
+     - 尝试在本地非headless模式下运行，手动完成验证
+   
+   **非认证相关问题：**
    - **"scholarly library not installed"**: 确保requirements.txt包含所有依赖
    - **"No publications found"**: Google Scholar可能暂时无法访问，稍后重试
    - **"Rate limit exceeded"**: Google Scholar限制了访问频率，等待一段时间后重试
 
 3. **备选方案**：
+   - 如果认证方法失败，系统会自动回退到非认证方法
    - 使用手动导出方法
    - 或者等待Google Scholar的反爬虫限制解除后重试
 
+4. **调试建议**：
+   - 在本地设置 `HEADLESS="false"` 可以看到浏览器操作过程
+   - 检查是否需要处理验证码或额外的安全验证
+   - 如果Google检测到异常登录，可能需要先在浏览器中正常登录一次
+
 ## 📚 相关文件
 
-- `scripts/fetch_google_scholar_bib.py`: 主要的抓取脚本
+- `scripts/fetch_google_scholar_bib_auth.py`: **使用认证的抓取脚本（推荐）**
+- `scripts/fetch_google_scholar_bib.py`: 不使用认证的抓取脚本（备选）
 - `.github/workflows/update-bibtex.yml`: GitHub Actions工作流配置
 - `scripts/requirements.txt`: Python依赖列表
+- `scripts/merge_bibtex.py`: 手动合并BibTeX文件的工具
+
+## 🔐 安全说明
+
+- **凭据安全**: 所有敏感信息（邮箱、密码）都存储在GitHub Secrets中，不会出现在代码或日志中
+- **应用专用密码**: 强烈建议使用应用专用密码而不是主密码
+- **访问权限**: 确保只有您信任的人员可以访问GitHub仓库的Secrets设置
 

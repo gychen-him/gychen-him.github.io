@@ -29,14 +29,37 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install scholarly bibtexparser
+        pip install scholarly bibtexparser selenium
     
-    - name: Fetch BibTeX from Google Scholar
+    - name: Install Chrome and ChromeDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser chromium-chromedriver
+        sudo ln -s /usr/bin/chromium-browser /usr/bin/google-chrome
+        sudo ln -s /usr/bin/chromium-chromedriver /usr/bin/chromedriver
+    
+    - name: Fetch BibTeX from Google Scholar (with authentication)
       env:
         GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID || 'AUpqepUAAAAJ' }}
+        GOOGLE_EMAIL: ${{ secrets.GOOGLE_EMAIL }}
+        GOOGLE_PASSWORD: ${{ secrets.GOOGLE_PASSWORD }}
         BIB_OUTPUT_FILE: pub.bib
+        HEADLESS: 'true'
       run: |
-        python scripts/fetch_google_scholar_bib.py
+        # Try authenticated method first
+        if [ -n "$GOOGLE_EMAIL" ] && [ -n "$GOOGLE_PASSWORD" ]; then
+          echo "Using authenticated method..."
+          pip install selenium
+          python scripts/fetch_google_scholar_bib_auth.py || {
+            echo "Authenticated method failed, trying fallback..."
+            pip install scholarly bibtexparser
+            python scripts/fetch_google_scholar_bib.py
+          }
+        else
+          echo "No credentials provided, using non-authenticated method..."
+          pip install scholarly bibtexparser
+          python scripts/fetch_google_scholar_bib.py
+        fi
     
     - name: Check for changes
       id: verify-changed-files
