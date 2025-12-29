@@ -71,6 +71,29 @@ function normalizeAuthors(authorString) {
   return normalizedAuthors.join(' and ');
 }
 
+// Clean LaTeX formatting from text
+function cleanLatex(text) {
+  if (!text) return text;
+  
+  // Remove \textbf{...}
+  text = text.replace(/\\textbf\{([^}]*)\}/g, '$1');
+  
+  // Remove \emph{...}
+  text = text.replace(/\\emph\{([^}]*)\}/g, '$1');
+  
+  // Remove \textit{...}
+  text = text.replace(/\\textit\{([^}]*)\}/g, '$1');
+  
+  // Remove other common LaTeX commands
+  text = text.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1');
+  
+  // Remove double braces from titles {{...}} -> ...
+  text = text.replace(/^\{\{(.*)\}\}$/, '$1');
+  text = text.replace(/^\{(.*)\}$/, '$1');
+  
+  return text.trim();
+}
+
 // Parse BibTeX content with automatic author normalization
 function parseBibtex(bibtexText) {
   const entries = [];
@@ -91,6 +114,9 @@ function parseBibtex(bibtexText) {
       
       if (fieldName && fieldValue) {
         fieldValue = fieldValue.trim();
+        
+        // Clean LaTeX formatting
+        fieldValue = cleanLatex(fieldValue);
         
         // Auto-normalize author field
         if (fieldName.toLowerCase() === 'author') {
@@ -176,12 +202,15 @@ function authorsMatch(author1, author2) {
 function formatAuthors(authorsString, entry) {
   if (!authorsString) return 'Unknown authors';
   
+  // Clean any asterisks or LaTeX markers from author string
+  authorsString = authorsString.replace(/\*/g, '').replace(/\\textbf\{([^}]*)\}/g, '$1');
+  
   // Parse cofirst and corresponding fields
   // These contain authors in same format as main author field: "Last1, First1 and Last2, First2"
   const cofirstAuthors = entry.fields.cofirst ? 
-    entry.fields.cofirst.split(' and ').map(author => author.trim()) : [];
+    entry.fields.cofirst.split(' and ').map(author => author.trim().replace(/\*/g, '')) : [];
   const correspondingAuthors = entry.fields.corresponding ? 
-    entry.fields.corresponding.split(' and ').map(author => author.trim()) : [];
+    entry.fields.corresponding.split(' and ').map(author => author.trim().replace(/\*/g, '')) : [];
   
   // Split authors by 'and'
   const authors = authorsString.split(' and ').map(author => author.trim());
