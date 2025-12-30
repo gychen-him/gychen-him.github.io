@@ -170,12 +170,6 @@ layout: spa
 ---
 
 ## Join Our Team
-We are always looking for talented and motivated researchers to join our team. If you are interested in:
-- Medical AI and drug discovery
-- Large language models applications
-- Computational biology and chemistry
-- Machine learning for healthcare
-
-Please feel free to contact me with your CV and research interests.
+We are always looking for talented and motivated researchers to join our team. If you are interested in, please feel free to contact me with your CV and research interests.
 
 Email: chenguangyong@him.cas.cn
