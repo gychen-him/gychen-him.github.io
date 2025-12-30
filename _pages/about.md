@@ -30,9 +30,8 @@ We are always looking for talented and motivated researchers to join our team. I
 Email: chenguangyong@him.cas.cn
 
 # News
-- *2025.01*: **[Nature Communications]** Our work **PhyloTune** (Corresponding Author) is accepted! We developed an efficient method to accelerate phylogenetic updates using a pretrained DNA language model, achieving significant speedup in evolutionary analysis.
-- *2025.01*: **[Nature Communications]** Our work on **Unified Molecular Representation** (Corresponding Author) is accepted! We developed an explainable molecular representation learning method for imperfectly annotated data from a hypergraph perspective.
-- *2025.01*: **[JACS]** Our research on **Small CAG Repeat RNA** (Corresponding Author) is published! We discovered that these RNAs form duplex structures with sticky ends that promote RNA condensation, providing new insights into repeat-expansion diseases.
-- *2025.01*: **[Advanced Science]** Our paper **scHeteroNet** (Corresponding Author) is accepted! We proposed a heterophily-aware graph neural network for accurate cell type annotation and novel cell detection in single-cell analysis.
-- *2025.01*: **[Bioinformatics]** Our paper **DivPro** (Corresponding Author) is accepted! It introduces a novel approach for diverse protein sequence design with direct structure recovery guidance, enhancing the efficiency of protein engineering.
-- *2025.01*: **[ICCV 2025]** Our work **ChemMiner** is accepted! We developed a Large Language Model Agent system for automated chemical literature data mining.
+- *2025.08*: **[Nature Communications]** Our work **PhyloTune** (Corresponding Author) is published! We developed an efficient method to accelerate phylogenetic updates using a pretrained DNA language model, achieving significant speedup in evolutionary analysis.
+- *2025.08*: **[Advanced Science]** Our paper **scHeteroNet** (Corresponding Author) is published! We proposed a heterophily-aware graph neural network for accurate cell type annotation and novel cell detection in single-cell analysis.
+- *2025.07*: **[Bioinformatics]** Our paper **DivPro** (Corresponding Author) is published! It introduces a novel approach for diverse protein sequence design with direct structure recovery guidance, enhancing the efficiency of protein engineering.
+- *2025.01*: **[Nature Communications]** Our work on **Unified Molecular Representation** (Corresponding Author) is published! We developed an explainable molecular representation learning method for imperfectly annotated data from a hypergraph perspective.
+- *2025.01*: **[Journal of the American Chemical Society]** Our research on **Small CAG Repeat RNA** (Corresponding Author) is published! We discovered that these RNAs form duplex structures with sticky ends that promote RNA condensation, providing new insights into repeat-expansion diseases.
