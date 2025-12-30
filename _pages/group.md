@@ -12,13 +12,43 @@ layout: spa
 
 <div class="group-section">
   <div class="group-title-box">
-    <h2>博士后</h2>
+    <h2>Postdoctoral Researchers</h2>
   </div>
   <div class="group-members">
-    <!-- Postdoc members will go here -->
+    <!-- Postdoc 1 -->
     <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
       <div class="member-info">
-        <p>Positions available - Please contact for opportunities</p>
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Postdoc 2 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Postdoc 3 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Postdoc 4 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
       </div>
     </div>
   </div>
@@ -26,13 +56,16 @@ layout: spa
 
 <div class="group-section">
   <div class="group-title-box">
-    <h2>博士</h2>
+    <h2>PhD Students</h2>
   </div>
   <div class="group-members">
-    <!-- PhD members will go here -->
+    <!-- PhD 1 -->
     <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="PhD Student Name">
       <div class="member-info">
-        <p>Recruiting exceptional students - Please contact for opportunities</p>
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
       </div>
     </div>
   </div>
@@ -40,13 +73,25 @@ layout: spa
 
 <div class="group-section">
   <div class="group-title-box">
-    <h2>硕士生</h2>
+    <h2>Master Students</h2>
   </div>
   <div class="group-members">
-    <!-- Master members will go here -->
+    <!-- Master 1 -->
     <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Master Student Name">
       <div class="member-info">
-        <p>Recruiting motivated students</p>
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Master 2 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Master Student Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
       </div>
     </div>
   </div>
@@ -54,13 +99,43 @@ layout: spa
 
 <div class="group-section">
   <div class="group-title-box">
-    <h2>访问学生</h2>
+    <h2>Visiting Students</h2>
   </div>
   <div class="group-members">
-    <!-- Visiting members will go here -->
+    <!-- Visiting 1 -->
     <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
       <div class="member-info">
-        <p>Welcome visiting scholars and collaborations</p>
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Visiting 2 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Visiting 3 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Visiting 4 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
       </div>
     </div>
   </div>
@@ -68,13 +143,25 @@ layout: spa
 
 <div class="group-section">
   <div class="group-title-box">
-    <h2>工程师</h2>
+    <h2>Research Engineers</h2>
   </div>
   <div class="group-members">
-    <!-- Engineer members will go here -->
+    <!-- Engineer 1 -->
     <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Engineer Name">
       <div class="member-info">
-        <p>Positions available - Join our engineering team</p>
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
+      </div>
+    </div>
+    <!-- Engineer 2 -->
+    <div class="member-item">
+      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Engineer Name">
+      <div class="member-info">
+        <h4>Member Name</h4>
+        <p>Research Interest</p>
+        <p>Email: name@example.com</p>
       </div>
     </div>
   </div>
