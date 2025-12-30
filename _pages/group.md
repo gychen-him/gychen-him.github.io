@@ -17,7 +17,12 @@ layout: spa
   <div class="group-members">
     <!-- Postdoc 1 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/postdoc1-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/postdoc1-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -26,7 +31,12 @@ layout: spa
     </div>
     <!-- Postdoc 2 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/postdoc2-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/postdoc2-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -35,7 +45,12 @@ layout: spa
     </div>
     <!-- Postdoc 3 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/postdoc3-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/postdoc3-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -44,7 +59,12 @@ layout: spa
     </div>
     <!-- Postdoc 4 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Postdoc Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/postdoc4-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/postdoc4-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -61,7 +81,12 @@ layout: spa
   <div class="group-members">
     <!-- PhD 1 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="PhD Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/phd1-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/phd1-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -78,7 +103,12 @@ layout: spa
   <div class="group-members">
     <!-- Master 1 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Master Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/master1-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/master1-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -87,7 +117,12 @@ layout: spa
     </div>
     <!-- Master 2 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Master Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/master2-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/master2-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -104,7 +139,12 @@ layout: spa
   <div class="group-members">
     <!-- Visiting 1 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/visiting1-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/visiting1-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -113,7 +153,12 @@ layout: spa
     </div>
     <!-- Visiting 2 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/visiting2-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/visiting2-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -122,7 +167,12 @@ layout: spa
     </div>
     <!-- Visiting 3 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/visiting3-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/visiting3-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -131,7 +181,12 @@ layout: spa
     </div>
     <!-- Visiting 4 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Visiting Student Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/visiting4-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/visiting4-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -148,7 +203,12 @@ layout: spa
   <div class="group-members">
     <!-- Engineer 1 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Engineer Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/engineer1-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/engineer1-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
@@ -157,7 +217,12 @@ layout: spa
     </div>
     <!-- Engineer 2 -->
     <div class="member-item">
-      <img src="/images/members/avatar-placeholder.png" class="member-photo" alt="Engineer Name">
+      <div class="member-photo-container">
+        <div class="member-photo-inner">
+          <img src="/images/members/engineer2-formal.png" class="photo-front" alt="Member Name">
+          <img src="/images/members/engineer2-life.png" class="photo-back" alt="Member Name">
+        </div>
+      </div>
       <div class="member-info">
         <h4>Member Name</h4>
         <p>Research Interest</p>
