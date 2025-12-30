@@ -726,29 +726,30 @@
 .member-item {
   width: calc(25% - 1.5em);
   min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 确保内容水平居中对齐 */
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 .member-photo-container {
-  width: 160px; /* 增加宽度 */
-  height: 200px; /* 改为纵向长方形，更适合展示全身/半身生活照 */
-  margin: 0 auto 1.2em;
-  perspective: 1200px; /* 增强 3D 透视感 */
+  width: 160px;
+  height: 200px;
+  margin-bottom: 1.2em;
+  perspective: 1500px; /* 增强 3D 透视感 */
   cursor: pointer;
   position: relative;
-  z-index: 5;
 }
 
 .member-photo-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* 更平滑的曲线 */
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
-  border-radius: 12px; /* 改为圆角矩形 */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  transform-origin: center center; /* 关键：确保绕中轴翻转 */
 }
 
 .member-photo-container:hover .member-photo-inner {
@@ -764,15 +765,13 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 12px;
-  object-fit: cover; /* 确保图片充满容器 */
-  border: 1px solid rgba(0,0,0,0.05);
-  background-color: #fff;
+  object-fit: cover;
 }
 
 .photo-front {
   z-index: 2;
-  /* 关键技巧：通过混合模式去掉白色背景，让证件照看起来像透明的 */
-  mix-blend-mode: multiply; 
+  border: 1px solid #f0f0f0;
+  mix-blend-mode: multiply; /* 去掉白色背景 */
   background-color: transparent;
 }
 
