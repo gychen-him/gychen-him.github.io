@@ -25,8 +25,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>孟昭政</h4>
-        <p>Postdoctoral Researcher</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Postdoc 2 -->
@@ -39,8 +37,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>王帅</h4>
-        <p>Postdoctoral Researcher</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Postdoc 3 -->
@@ -53,8 +49,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>郭颖</h4>
-        <p>Postdoctoral Researcher</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Postdoc 4 -->
@@ -67,8 +61,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>齐晨</h4>
-        <p>Postdoctoral Researcher</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
   </div>
@@ -89,8 +81,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>刘心欣</h4>
-        <p>PhD Student (TJU)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
   </div>
@@ -111,8 +101,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>卞士蝶</h4>
-        <p>Master Student (ZJUT)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
   </div>
@@ -133,8 +121,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>蒋世琪</h4>
-        <p>Research Assistant</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- RA 2 -->
@@ -147,8 +133,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>赵彩芸</h4>
-        <p>Research Assistant</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
   </div>
@@ -169,8 +153,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>张威豪</h4>
-        <p>Research Engineer</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Engineer 2 -->
@@ -183,8 +165,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>袁登鹏</h4>
-        <p>Research Engineer</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
   </div>
@@ -205,8 +185,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>甘镇嘉</h4>
-        <p>Visiting Student (ECNU)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Visiting 2: Lu Jielong -->
@@ -219,8 +197,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>卢杰龙</h4>
-        <p>Visiting Student (ZJU)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Visiting 3: Wu Zhihao -->
@@ -233,8 +209,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>吴之昊</h4>
-        <p>Visiting Student (ZJU)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Visiting 4: Guo Junkun -->
@@ -247,8 +221,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>郭珺琨</h4>
-        <p>Visiting Student (SJTU)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
     <!-- Visiting 5: Duan Jiahao -->
@@ -261,8 +233,6 @@ layout: spa
       </div>
       <div class="member-info">
         <h4>段家浩</h4>
-        <p>Visiting Student (ZJUT)</p>
-        <p>Email: example@him.cas.cn</p>
       </div>
     </div>
   </div>
