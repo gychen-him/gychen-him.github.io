@@ -244,8 +244,3 @@ layout: spa
 </div>
 
 ---
-
-## Join Our Team
-We are always looking for talented and motivated researchers to join our team. If you are interested in, please feel free to contact me with your CV and research interests.
-
-Email: chenguangyong@him.cas.cn
