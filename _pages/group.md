@@ -10,29 +10,75 @@ layout: spa
 
 # Research Group
 
-## Principal Investigator
-**Guangyong Chen**  
-Research Professor  
-Hangzhou Institute of Medicine, Chinese Academy of Sciences  
-Associate Director, Medical AI Center
+<div class="group-section">
+  <div class="group-title-box">
+    <h2>博士后</h2>
+  </div>
+  <div class="group-members">
+    <!-- Postdoc members will go here -->
+    <div class="member-item">
+      <div class="member-info">
+        <p>Positions available - Please contact for opportunities</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-## Research Interests
-- Next-generation computational tools for medical AI and drug discovery
-- Large language models for pharmaceutical research
-- Clinical multimodal information processing
-- Disease mechanism discovery and targeted therapeutics design
+<div class="group-section">
+  <div class="group-title-box">
+    <h2>博士</h2>
+  </div>
+  <div class="group-members">
+    <!-- PhD members will go here -->
+    <div class="member-item">
+      <div class="member-info">
+        <p>Recruiting exceptional students - Please contact for opportunities</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-## Postdoctoral Researchers
-*Positions available - Please contact for opportunities*
+<div class="group-section">
+  <div class="group-title-box">
+    <h2>硕士生</h2>
+  </div>
+  <div class="group-members">
+    <!-- Master members will go here -->
+    <div class="member-item">
+      <div class="member-info">
+        <p>Recruiting motivated students</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-## PhD Students
-*Recruiting exceptional students - Please contact for opportunities*
+<div class="group-section">
+  <div class="group-title-box">
+    <h2>访问学生</h2>
+  </div>
+  <div class="group-members">
+    <!-- Visiting members will go here -->
+    <div class="member-item">
+      <div class="member-info">
+        <p>Welcome visiting scholars and collaborations</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-## Research Assistants
-*Positions available - Please contact for opportunities*
-
-## Visiting Scholars
-*Welcome visiting scholars and collaborations*
+<div class="group-section">
+  <div class="group-title-box">
+    <h2>工程师</h2>
+  </div>
+  <div class="group-members">
+    <!-- Engineer members will go here -->
+    <div class="member-item">
+      <div class="member-info">
+        <p>Positions available - Join our engineering team</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
